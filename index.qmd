@@ -1,0 +1,78 @@
+---
+title: "Armá un Dashboard con R y Quarto"
+format: html
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Fecha y ubicación
+
+📆 25 de Agosto, 2025
+
+⏰18:30 - Argentina (UTC -3)
+
+🏫 UNTREF
+
+🐱 [Repositorio en GitHub](https://github.com/JFormoso/quarto-dasboards-rladiesBA)
+
+\
+
+## Sobre este taller
+
+Quarto es un sistema de publicación de código abierto diseñado para crear 
+documentos científicos y técnicos de manera dinámica y reproducible.
+Tras nuestro [primer encuentro introductoroio a Quarto con Jesi Formoso](https://jformoso.github.io/quarto-rladiesBA/)
+avanzamos sobre otra de las funcionalidades de esta plataforma: los tableros. 
+
+Vamos a recorrer sus principales funcionalidades y vamos a sumarle un poquito 
+de magia interactiva con el paquete crosstalk y su kpi widget.
+
+## Objetivos de aprendizaje
+
+-   Continuar familiarizandose con Quarto en este caso como continuidad de 
+    flexdashboard.
+-   Identificar los componentes básicos y layout que propone este formato.
+-   Incorporar gráficos y tarjetas en el diseño.
+-   Sumar funcionalidades interactivas del paquete `crosstalk` y su kpi widget.
+
+## Instructora
+
+![](images/avatar.jpeg){style="float:left;padding: 0 10px 0 0; border-radius:50%"
+width="149"}
+
+[Betsy Cohen](https://www.linkedin.com/in/betsabe1984/)
+es socióloga especializada en gestión y políticas culturales. 
+Forma parte del equipo de organizadoras de
+[RLadies Buenos Aires](https://rladiesba.netlify.app/) 💜 y co-coordinadora del
+[Núcleo de Innovación Social](https://nucleodeinnovacionsocial.com.ar/),
+un laboratorio de trabajo con un enfoque multidisciplinario, arraigado en las 
+ciencias sociales. 
+
+\
+
+## Código de Conducta
+
+R-Ladies se dedica a proporcionar una experiencia libre de acoso para
+todes. [**Conocé el Código de
+Conducta**](https://github.com/rladies/.github/blob/master/CODE_OF_CONDUCT.md#spanish)
+que se aplica en todos los espacios de participación de R-Ladies Global
+y del capitulo, incluyendo reuniones presenciales o virtuales, Twitter,
+Slack, listas de correo, tanto online como offline.
+
+## Agradecimientos
+
+Los materiales de este taller se basaron en el taller
+[Build-a-Dashboard.](https://posit-conf-2024.github.io/quarto-dashboards/)
+
+Este taller fue auspiciado por:
+
+[![](slides/images/rladies-logo.png){width="100"}](https://rladies.org/)
+
+[![](slides/images/rconsortium.png){width="366"}](https://r-consortium.org/)
+
+y un agradecimiento especial a la [Universidad Nacional Tres de
+Febrero](https://untref.edu.ar/) por facilitarnos el espacio para este
+encuentro presencial y por acompañar la difusión del mismo.
+
+![](slides/images/clipboard-672291485.png){width="185"}

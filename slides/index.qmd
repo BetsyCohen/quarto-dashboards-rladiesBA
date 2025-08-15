@@ -1,0 +1,396 @@
+---
+title: "Armá un Dashboard con R y Quarto"
+author: "Betsy Cohen<br>RLadies Buenos Aires"
+logo: "images/logo-rladies-BA.png"
+format: 
+  revealjs: 
+    width: 1600
+    height: 900  
+    theme: slides.scss
+    highlight-style: a11y
+    transition: fade
+    slide-number: true
+execute:
+  echo: true
+df-print: kable
+---
+
+## Mientras esperás a que comencemos...
+
+Asegurate de haber seguido las instrucciones de configuración y que tenés los programas y paquetes que necesitás para seguir el taller
+
+## Agradecimientos
+
+**Este taller y sus materiales se basaron en:**
+
+[Build-a-Dashboard](https://posit-conf-2024.github.io/quarto-dashboards/) dictado por [Mine Çetinkaya-Rundel](https://mine-cr.com/)
+
+\
+
+**Auspisian RLadies Buenos Aires:**
+
+::: columns
+::: {.column width="10%"}
+:::
+
+::: {.column width="20%"}
+![](images/rladies-logo.png){style="border-radius:1em;margin-top:auto" width="170"}
+:::
+
+::: {.column width="40%"}
+![](images/rconsortium.png){style="border-radius:1em;margin-top:auto"}
+:::
+
+::: {.column width="20%"}
+![](images/clipboard-672291485.png)
+:::
+
+::: {.column width="10%"}
+:::
+:::
+
+## Codigo de conducta
+
+Todos los espacios de participación de R-Ladies Global y RLadies Buenos Aires, incluyendo reuniones presenciales o virtuales, Twitter, Slack y listas de correo se rigen por el [Código de conducta de RLadies](https://github.com/rladies/.github/blob/master/CODE_OF_CONDUCT.md#spanish).
+
+## Licencia
+
+Estos materiales están publicados bajo la licencia [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA)](https://creativecommons.org/licenses/by-nc-sa/4.0/), la cual implica:
+
+-   Atribución: Podés compartir y adaptar el material siempre que reconozcas la autoría de forma adecuada.
+-   Uso no comercial: No está permitido usar el material con fines comerciales.
+-   Compartir igual: Si adaptás o transformas el material, debés distribuirlo bajo la misma licencia.
+
+{{< fa brands creative-commons size=2x >}} {{< fa brands creative-commons-by size=2x >}} {{< fa brands creative-commons-nc size=2x >}} {{< fa brands creative-commons-sa size=2x >}}
+
+## Quienes somos
+
+::: columns
+::: {.column width="50%"}
+![](images/maria.jpg){style="border-radius:1em;margin-top:auto"}
+
+María Nanton
+
+![](images/jesi.png){style="border-radius:1em;margin-top:auto" width="270"}
+
+Jesica Formoso
+:::
+
+::: {.column width="50%"}
+![](images/betsy2.png){style="border-radius:1em;margin-top:auto"}
+
+Betsabé Cohen\
+
+![](images/vir.jpg){style="border-radius:1em;margin-top:auto"}
+
+Virginia García Alonso
+:::
+:::
+
+# Empecemos por el principio
+
+## Tarjetas {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+La unidad fundamental en los tableros de Quarto son las tarjetas
+
+::: r-hstack
+::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 200px; height: 150px; margin: 10px; border: 3px solid #57733D;"}
+:::
+
+::: {data-id="box2" auto-animate-delay="0.1" style="background: #F2F2F2; width: 200px; height: 150px; margin: 10px; border: 3px solid #C2C2C4;"}
+:::
+
+::: {data-id="box3" auto-animate-delay="0.2" style="background: #419599; width: 200px; height: 150px; margin: 10px; border: 3px solid #297075;"}
+:::
+:::
+
+## Filas y columnas {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+Las tarjetas se ordenan en **flas** y **columnas**
+
+::: r-stack
+::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 235px; height: 145px; margin-top: 30px; position: absolute; left: 550px; border: 3px solid #57733D;"}
+:::
+
+::: {data-id="box2" style="background: #F2F2F2; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 550px; border: 3px solid #C2C2C4;"}
+:::
+
+::: {data-id="box3" style="background: #419599; width: 500px; height: 300px; margin-top: 200px; border: 3px solid #297075;"}
+:::
+:::
+
+## Diseño o layout
+
+Las **Pages**, **tabsets**, y **sidebars** nos van a permitir un diseño más avanzado.
+
+::: r-stack
+::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 235px; height: 145px; margin-top: 30px; position: absolute; left: 550px; border: 3px solid #57733D;"}
+:::
+
+::: {data-id="box2" style="background: #F2F2F2; width: 235px; height: 145px; margin-top: 30px; position: absolute; right: 550px; border: 3px solid #C2C2C4;"}
+:::
+
+::: {data-id="box3" style="background: #419599; width: 500px; height: 300px; margin-top: 200px; border: 3px solid #297075;"}
+:::
+
+::: {data-id="box4" auto-animate-delay="0" style="background: #DFB33E; width: 150px; height: 470px; margin-top: 30px; position: absolute; right: 1070px; border: 3px solid #9a771a;"}
+:::
+:::
+
+## Trabajando la disposición
+
+Estas filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:
+
+::: columns
+::: {.column width="50%"}
+![](images/chart-focal-top.png)
+:::
+::: {.column width="50%"}
+::: r-box
+```` {.yaml filename="dashboard-r.qmd"}
+---
+title: "Mi primer tablero en quarto"
+author: "Rladies BA"
+format: dashboard
+---
+
+## Row {height=70%}
+
+```{{r}}
+``` 
+## Row {height=30%}
+
+```{{r}}
+``` 
+
+```{{r}}
+``` 
+````
+:::
+:::
+:::
+
+## Navegación
+
+Todos los tableros tienen una barra de navegación superior o \`nav-bar\` a la que le podemos agregar desde YAML diferentes elemetos como botones de navegación (como links a linkedin, twitter) y botones personalizados
+
+![](images/navigation-toolbar.png)
+
+::: r-box
+``` {.yaml filename="dashboard-r.qmd"}
+---
+title: "Mi primer tablero en quarto"
+author: "Rladies BA"
+format:
+  dashboard:
+    logo: images/rladies-hex.png
+    nav-buttons: [linkedin,twitter,github]
+---
+```
+:::
+
+
+## Como dijo Gilda: pasito a pasito
+
+![](images/Gilda.jpg){style="border-radius:1em;margin-top:auto"}
+
+## Paso 1: Armá un archivo Quarto con `format: dashboard` en el YAML {auto-animate="true"}
+
+::: r-box
+``` {.yaml filename="dashboard-r.qmd"}
+---
+title: "Mi primer tablero en quarto"
+format: dashboard
+---
+```
+:::
+
+## Paso 2: Cada chunck funciona como una tarjeta {auto-animate="true"}
+
+Los distintos niveles de las seccioines en que se ordenen esas tarjetas también podemos irlas agregando usando \##
+
+::: r-box
+```` {.yaml filename="dashboard-r.qmd" code-line-numbers="|10-13"}
+---
+title: "Mi primer tablero en quarto"
+format: dashboard
+---
+
+```{{r}}
+library(ggplot2)
+```
+
+```{{r}}
+ggplot(mpg, aes(x = cty, y = hwy)) +
+  geom_point()
+```
+````
+:::
+
+## Paso 2: Así queda nuestra primera tarjeta {.smaller auto-animate="true"}
+
+::: columns
+::: {.column width="40%"}
+::: r-box
+```` {.yaml filename="dashboard-r.qmd"}
+---
+title: "Mi primer tablero en quarto"
+format: dashboard
+---
+
+```{{r}}
+library(ggplot2)
+```
+
+```{{r}}
+ggplot(mpg, aes(x = cty, y = hwy)) +
+  geom_point()
+```
+````
+:::
+:::
+
+::: {.column width="60%"}
+![](images/first-dashboard-r-1.png)
+:::
+:::
+
+## Paso 3: Sumamos otra tarjeta {auto-animate="true"}
+
+::: r-box
+```` {.yaml filename="dashboard-r.qmd" code-line-numbers="|15-18"}
+---
+title: "Mi primer tablero en quarto"
+format: dashboard
+---
+
+```{{r}}
+library(ggplot2)
+```
+
+```{{r}}
+ggplot(mpg, aes(x = cty, y = hwy)) +
+  geom_point()
+```
+
+```{{r}}
+ggplot(mpg, aes(x = drv)) +
+  geom_bar()
+```
+````
+:::
+
+## Paso 3: Y se visualiza abajo {.smaller auto-animate="true"}
+
+::: columns
+::: {.column width="40%"}
+::: r-box
+```` {.yaml filename="dashboard-r.qmd"}
+---
+title: "Mi primer tablero en quarto"
+format: dashboard
+---
+
+```{{r}}
+library(ggplot2)
+```
+
+```{{r}}
+ggplot(mpg, aes(x = cty, y = hwy)) +
+  geom_point()
+```
+
+```{{r}}
+ggplot(mpg, aes(x = drv)) +
+  geom_bar()
+```
+````
+:::
+:::
+
+::: {.column width="60%"}
+![](images/first-dashboard-r-2.png)
+:::
+:::
+
+## Paso 4: A cada tarjeta podemos agregarle un título usando la opción `#|title:` {auto-animate="true"}
+
+::: r-box
+```` {.yaml filename="dashboard-r.qmd" code-line-numbers="|11,17"}
+---
+title: "Mi primer tablero en quarto"
+format: dashboard
+---
+
+```{{r}}
+library(ggplot2)
+```
+
+```{{r}}
+#| title: Highway vs. city mileage
+ggplot(mpg, aes(x = cty, y = hwy)) +
+  geom_point()
+```
+
+```{{r}}
+#| title: Drive types
+ggplot(mpg, aes(x = drv)) +
+  geom_bar()
+```
+````
+:::
+
+## Paso 4: A cada tarjeta podemos agregarle un título usando la opción `#|title:` {.smaller auto-animate="true"}
+
+::: columns
+::: {.column width="40%"}
+::: r-box
+```` {.yaml filename="dashboard-r.qmd"}
+---
+title: "Mi primer tablero en quarto"
+format: dashboard
+---
+
+```{{r}}
+library(ggplot2)
+```
+
+```{{r}}
+#| title: Highway vs. city mileage
+ggplot(mpg, aes(x = cty, y = hwy)) +
+  geom_point()
+```
+
+```{{r}}
+#| title: Drive types
+ggplot(mpg, aes(x = drv)) +
+  geom_bar()
+```
+````
+:::
+:::
+
+::: {.column width="60%"}
+![](images/first-dashboard-r-3.png)
+:::
+:::
+
+# Antes de que te vayas..
+
+## Seguinos
+
+{{< fa brands instagram >}} [\@rladiesba](https://www.instagram.com/rladiesba/)\
+{{< fa brands twitter >}} [\@RLadiesBA](https://x.com/RLadiesBA)\
+{{< fa brands meetup >}} [RLadies Buenos Aires](https://www.meetup.com/es/rladies-buenos-aires/)\
+{{< fa brands youtube >}} [\@RLadiesBuenosAires](https://youtube.com/@RLadiesBuenosAires)\
+{{< fa globe >}} <https://rladiesba.netlify.app/>
+
+## ¡No te pierdas las novedades! {.large-font-slide}
+
+¡En 2025 hicimos!
+
+-   Club de lectura del libro [Mastering Shiny](https://mastering-shiny.org/) de Hadley Wickham.
+-   Meetup sobre Quarto y tableros con `Quarto`💜
+-   Debugging! Muy pronto
+
+# ¡Muchas gracias!
