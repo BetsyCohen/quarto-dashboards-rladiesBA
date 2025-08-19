@@ -1,0 +1,190 @@
+---
+title: "Tablero de libros"
+format: dashboard
+theme: minty
+logo: "images/logo.png"
+editor: source
+embed-resources: true
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| eval: true
+#| warning: false
+#| output: false
+
+# cargamos las librerías
+library(tidyverse)
+library(crosstalk)
+library(DT)
+library(plotly)
+library(kpiwidget)
+
+# Cargo datos
+libros <- read.csv("datos/libros.csv") |> 
+  mutate(titulo = str_to_title(titulo))
+
+# Compartir datos con Crosstalk
+shared_libros <- SharedData$new(libros)
+
+
+# colores para géneros
+colores <- RColorBrewer::brewer.pal(length(unique(libros$genero)), "Set3")
+
+```
+
+## Filters {.sidebar}
+
+```{r}
+#| label: filtro-generos
+filter_select("filtro_genero", "Género", shared_libros, ~genero, multiple = TRUE)
+```
+
+<br>
+
+```{r}
+#| label: filtro-precio
+filter_slider("filtro_precio", "Precio (ARS)", shared_libros, ~precio, width = "100%")
+```
+
+<br>
+
+```{r}
+#| label: filtro-ebook
+filter_checkbox("filtro_ebook", "Disponible en Ebook", shared_libros, ~ebook, inline = TRUE)
+```
+
+## Columna cuerpo
+
+### Fila de KPIs {height= 15%}
+
+```{r}
+#| content: valuebox
+#| title: "Precio X"
+#| icon: cash
+#| color: "#32a852"
+#| expandable: false
+
+kpiwidget(
+  data   = shared_libros,
+  kpi    = "mean",
+  column = "precio",
+  prefix = "$ ",
+  height = "28px"
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Rating Promedio"
+#| icon: "star"
+#| color: "#ded371"
+#| expandable: false
+
+
+kpiwidget(
+  data   = shared_libros,
+  kpi    = "mean",
+  column = "rating",
+  decimals = 2,
+  height = "28px"
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "% disponible Ebook"
+#| icon: "phone"
+#| color: "#a8a8a8"
+#| expandable: false
+
+kpiwidget(
+  data       = shared_libros,
+  column     = "ebook",
+  kpi        = "count",
+  comparison = "share",
+  group1     = ~ ebook == "Sí",
+  suffix     = " %",
+  height     = "28px"
+)
+
+```
+
+
+### Fila de Tabla
+
+```{r}
+#| label: tabla-libros
+#| title: "Listado (filtrable)"
+
+datatable(
+  shared_libros,
+  options = list(
+    pageLength = 10,
+    order = list(list(0, 'asc')), # ordenamos la tabla por ranking
+    dom = 'ftp',                  # solo filtro arriba (f), tabla (t) y paginación (p)
+    language = list(
+      searchPlaceholder = "Buscar...",
+      search = "" # saca el texto de 'Search:'
+    )
+  ),
+  class = 'table table-striped table-hover table-sm', # usamos Bootstrap 
+  filter = "none",   # sin filtros en columnas
+  rownames = FALSE,
+  colnames = c("Puesto","Título","Autoría","$AR","Stock","Puntaje","Género","Pág.","Ebook")
+)
+```
+
+### Fila de graficos 
+
+```{r}
+#| label: bars_ptj_genero
+#| title: "Rating promedio por género"
+
+plot_ly(
+  data = shared_libros,
+  x    = ~genero,
+  y    = ~rating,
+  type = "bar",
+  transforms = list(list(
+    type = "aggregate",
+    groups = ~genero,
+    aggregations = list(
+      list(target = "y", func = "avg", enabled = TRUE)
+    )
+  )),
+  marker = list(color = colores),
+  showlegend = FALSE
+)
+
+
+```
+
+```{r}
+#| label: boxplot_precio_grafico
+#| title: "Precio por género"
+#| warning: false
+
+
+plot_ly(
+  data = shared_libros,
+  x    = ~genero,
+  y    = ~precio,
+  color = ~genero,
+  colors = colores,
+  type  = "box",
+  boxpoints = "outliers",
+  showlegend = FALSE
+) %>%
+  layout(
+    xaxis = list(title = ""),
+    yaxis = list(title = "Precio $AR")
+  )
+
+
+```
+
+

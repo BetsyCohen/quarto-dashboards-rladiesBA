@@ -8,7 +8,6 @@ project:
     browser: true
     watch-inputs: true
     timeout: 3600
-
 lang: es
 
 

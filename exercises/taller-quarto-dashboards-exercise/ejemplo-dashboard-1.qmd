@@ -1,0 +1,90 @@
+---
+title: "Tablero de libros"
+editor: source
+format: dashboard
+embed-resources: true
+---
+```{r}
+#| label: setup
+library(tidyverse)
+library(DT)
+library(plotly)
+
+
+# Cargo datos
+libros <- read.csv("datos/libros.csv") |> 
+  mutate(titulo = str_to_title(titulo))
+
+
+# colores para géneros
+colores <- RColorBrewer::brewer.pal(length(unique(libros$genero)), "Set3")
+```
+
+
+## Fila 1 
+```{r}
+#| title: Ranking
+
+datatable(
+  libros,
+  options = list(
+    pageLength = 10,
+    order = list(list(0, 'asc')), # ordenamos la tabla por ranking
+    dom = 'ftp',                  # solo filtro arriba (f), tabla (t) y paginación (p)
+    language = list(
+      searchPlaceholder = "Buscar...",
+      search = "" # saca el texto de 'Search:'
+    )
+  ),
+  class = 'table table-striped table-hover table-sm', # usamos Bootstrap 
+  filter = "none",   # sin filtros en columnas
+  rownames = FALSE,
+  colnames = c("Puesto","Título","Autoría","$AR","Stock","Puntaje","Género","Pág.","Ebook")
+)
+```
+
+## Fila 2 {.tabset}
+```{r}
+#| label: bars_ptj_genero
+#| title: Puntaje promedio por género
+#| warning: false
+
+plot_ly(
+  data = libros,
+  x    = ~genero,
+  y    = ~rating,
+  type = "bar",
+  transforms = list(list(
+    type = "aggregate",
+    groups = ~genero,
+    aggregations = list(
+      list(target = "y", func = "avg", enabled = TRUE)
+    )
+  )),
+  marker = list(color = colores),
+  showlegend = FALSE
+)
+```
+
+
+```{r}
+#| label: boxplot_precio_grafico
+#| title: Precio por genero
+#| warning: false
+
+plot_ly(
+  data = libros,
+  x    = ~genero,
+  y    = ~precio,
+  color = ~genero,
+  colors = colores,
+  type  = "box",
+  boxpoints = "outliers",
+  showlegend = FALSE
+) %>%
+  layout(
+    xaxis = list(title = ""),
+    yaxis = list(title = "Precio $AR")
+  )
+
+```

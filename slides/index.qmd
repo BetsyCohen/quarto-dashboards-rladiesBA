@@ -63,7 +63,7 @@ Estos materiales están publicados bajo la licencia [Creative Commons Attributio
 
 {{< fa brands creative-commons size=2x >}} {{< fa brands creative-commons-by size=2x >}} {{< fa brands creative-commons-nc size=2x >}} {{< fa brands creative-commons-sa size=2x >}}
 
-## Quienes somos
+## Hacemos a este este bello espacio...
 
 ::: columns
 ::: {.column width="50%"}
@@ -89,9 +89,9 @@ Virginia García Alonso
 
 # Empecemos por el principio
 
-## Tarjetas {auto-animate="true" auto-animate-easing="ease-in-out"}
+## La unidad fundamental en los tableros de Quarto son las tarjetas {auto-animate="true" auto-animate-easing="ease-in-out"}
 
-La unidad fundamental en los tableros de Quarto son las tarjetas
+
 
 ::: r-hstack
 ::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 200px; height: 150px; margin: 10px; border: 3px solid #57733D;"}
@@ -104,9 +104,9 @@ La unidad fundamental en los tableros de Quarto son las tarjetas
 :::
 :::
 
-## Filas y columnas {auto-animate="true" auto-animate-easing="ease-in-out"}
+## Por default las tarjetas se ordenan en **filas** y **columnas** {auto-animate="true" auto-animate-easing="ease-in-out"}
 
-Las tarjetas se ordenan en **flas** y **columnas**
+
 
 ::: r-stack
 ::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 235px; height: 145px; margin-top: 30px; position: absolute; left: 550px; border: 3px solid #57733D;"}
@@ -119,9 +119,8 @@ Las tarjetas se ordenan en **flas** y **columnas**
 :::
 :::
 
-## Diseño o layout
+## Y si queremos un layout más avanzado vamos a poder agregar **páginas**,  **tabsets**, y **sidebars** {auto-animate="true" auto-animate-easing="ease-in-out"}
 
-Las **Pages**, **tabsets**, y **sidebars** nos van a permitir un diseño más avanzado.
 
 ::: r-stack
 ::: {data-id="box1" auto-animate-delay="0" style="background: #72994E; width: 235px; height: 145px; margin-top: 30px; position: absolute; left: 550px; border: 3px solid #57733D;"}
@@ -137,42 +136,9 @@ Las **Pages**, **tabsets**, y **sidebars** nos van a permitir un diseño más av
 :::
 :::
 
-## Trabajando la disposición
-
-Estas filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:
-
-::: columns
-::: {.column width="50%"}
-![](images/chart-focal-top.png)
-:::
-::: {.column width="50%"}
-::: r-box
-```` {.yaml filename="dashboard-r.qmd"}
----
-title: "Mi primer tablero en quarto"
-author: "Rladies BA"
-format: dashboard
----
-
-## Row {height=70%}
-
-```{{r}}
-``` 
-## Row {height=30%}
-
-```{{r}}
-``` 
-
-```{{r}}
-``` 
-````
-:::
-:::
-:::
-
 ## Navegación
 
-Todos los tableros tienen una barra de navegación superior o \`nav-bar\` a la que le podemos agregar desde YAML diferentes elemetos como botones de navegación (como links a linkedin, twitter) y botones personalizados
+Todos los tableros tienen una barra de navegación superior o \`nav-bar\` a la que le podemos agregar desde YAML diferentes elementos como **botones de navegación** (como links a linkedin, twitter) y **botones personalizados**
 
 ![](images/navigation-toolbar.png)
 
@@ -188,6 +154,115 @@ format:
 ---
 ```
 :::
+
+::: callout-tip
+### Más data sobre navegación
+Para aprendar más acreca del layout y controlar temas como la orientación, scrolleo, etc. consulta [esta sección](https://quarto.org/docs/dashboards/layout.html#layout) de la docu
+:::
+
+
+## Trabajando la disposición
+
+Las filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:
+
+::::: columns
+:::: {.column width="50%"}
+::: r-box 
+````{.yaml filename="dashboard-r.qmd"}
+---
+title: "Mi primer tablero en quarto"
+author: "Rladies BA"
+format: dashboard
+---
+
+## Row {height=70%}
+
+```{{r}}
+``` 
+## Row {height=30%}
+```{{r}}
+``` 
+```{{r}}
+``` 
+````
+::: 
+::::
+
+:::: {.column width="50%"}
+![](images/chart-focal-top.png)
+::::
+
+:::::
+
+
+## Paginado
+
+Podemos agregar varias páginas a nuestro dashboard usando títulos del nivel 1 de Markdown. 
+
+
+
+::: r-box 
+````{.yaml filename="dashboard-r.qmd"}
+---
+title: "Mi primer tablero en quarto"
+author: "Rladies BA"
+format: dashboard
+---
+
+# Page 1
+
+## Row {height=70%}
+
+```{{r}}
+``` 
+## Row {height=30%}
+```{{r}}
+``` 
+```{{r}}
+``` 
+# Page 2
+```{{r}}
+``` 
+```{{r}}
+``` 
+````
+::: 
+
+
+## Tabset
+
+Otra opción muy linda es agregar solapas o tabsets indicando la clase .tabset a una columna o fila:
+
+
+::::: columns
+:::: {.column width="50%"}
+::: r-box 
+````{.yaml filename="dashboard-r.qmd"}
+---
+title: "Mi primer tablero en quarto"
+author: "Rladies BA"
+format: dashboard
+---
+
+## Row 
+
+```{{r}}
+``` 
+## Row {.tabset}
+```{{r}}
+``` 
+```{{r}}
+``` 
+````
+::: 
+::::
+
+:::: {.column width="50%"}
+![](images/chart-tabset-row.png)
+::::
+
+:::::
+
 
 
 ## Como dijo Gilda: pasito a pasito
@@ -210,7 +285,8 @@ format: dashboard
 Los distintos niveles de las seccioines en que se ordenen esas tarjetas también podemos irlas agregando usando \##
 
 ::: r-box
-```` {.yaml filename="dashboard-r.qmd" code-line-numbers="|10-13"}
+
+````{.yaml filename="dashboard-r.qmd" code-line-numbers="|10-13"}
 ---
 title: "Mi primer tablero en quarto"
 format: dashboard
@@ -224,6 +300,7 @@ library(ggplot2)
 ggplot(mpg, aes(x = cty, y = hwy)) +
   geom_point()
 ```
+
 ````
 :::
 
@@ -232,7 +309,7 @@ ggplot(mpg, aes(x = cty, y = hwy)) +
 ::: columns
 ::: {.column width="40%"}
 ::: r-box
-```` {.yaml filename="dashboard-r.qmd"}
+````{.yaml filename="dashboard-r.qmd"}
 ---
 title: "Mi primer tablero en quarto"
 format: dashboard
@@ -258,7 +335,7 @@ ggplot(mpg, aes(x = cty, y = hwy)) +
 ## Paso 3: Sumamos otra tarjeta {auto-animate="true"}
 
 ::: r-box
-```` {.yaml filename="dashboard-r.qmd" code-line-numbers="|15-18"}
+````{.yaml filename="dashboard-r.qmd" code-line-numbers="|15-18"}
 ---
 title: "Mi primer tablero en quarto"
 format: dashboard
@@ -285,7 +362,7 @@ ggplot(mpg, aes(x = drv)) +
 ::: columns
 ::: {.column width="40%"}
 ::: r-box
-```` {.yaml filename="dashboard-r.qmd"}
+````{.yaml filename="dashboard-r.qmd"}
 ---
 title: "Mi primer tablero en quarto"
 format: dashboard
@@ -316,7 +393,7 @@ ggplot(mpg, aes(x = drv)) +
 ## Paso 4: A cada tarjeta podemos agregarle un título usando la opción `#|title:` {auto-animate="true"}
 
 ::: r-box
-```` {.yaml filename="dashboard-r.qmd" code-line-numbers="|11,17"}
+````{.yaml filename="dashboard-r.qmd" code-line-numbers="|11,17"}
 ---
 title: "Mi primer tablero en quarto"
 format: dashboard
@@ -345,7 +422,7 @@ ggplot(mpg, aes(x = drv)) +
 ::: columns
 ::: {.column width="40%"}
 ::: r-box
-```` {.yaml filename="dashboard-r.qmd"}
+````{.yaml filename="dashboard-r.qmd"}
 ---
 title: "Mi primer tablero en quarto"
 format: dashboard
@@ -374,6 +451,356 @@ ggplot(mpg, aes(x = drv)) +
 ![](images/first-dashboard-r-3.png)
 :::
 :::
+
+
+## Ahora te toca a vos 
+
+Vamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar [aquí]() y vamos a crear una serie de visualizaciones simples usando `plotly{}`:
+
+1. Una tabla con un ranking de libros
+2. Un gráfico de barras con el raiting promedio por género
+3. Un Boxplot de precio por género
+
+Para agilizar el trabajo los gráficos ya se encuentran listos aquí:
+
+::: r-box
+````{.yaml filename="dashboard-r.qmd"}
+
+```{{r}}
+# Tabla en DT con libros
+
+datatable(
+  libros,
+  options = list(
+    pageLength = 10,
+    order = list(list(0, 'asc')), # ordenamos la tabla por ranking
+    dom = 'ftp',                  # solo filtro arriba (f), tabla (t) y paginación (p)
+    language = list(
+      searchPlaceholder = "Buscar...",
+      search = "" # saca el texto de 'Search:'
+    )
+  ),
+  class = 'table table-striped table-hover table-sm', # usamos Bootstrap 
+  filter = "none",   # sin filtros en columnas
+  rownames = FALSE,
+  colnames = c("Puesto","Título","Autoría","$AR","Stock","Puntaje","Género","Pág.","Ebook")
+)
+
+```
+
+```{{r}}
+# Grafico 1 barplot raiting promedio por género
+plot_ly(
+  data = libros,
+  x    = ~genero,
+  y    = ~rating,
+  type = "bar",
+  transforms = list(list(
+    type = "aggregate",
+    groups = ~genero,
+    aggregations = list(
+      list(target = "y", func = "avg", enabled = TRUE)
+    )
+  )),
+  marker = list(color = colores),
+  showlegend = FALSE
+)
+```
+
+```{{r}}
+# Gráfico 2 boxplot de precios por género
+plot_ly(
+  data = libros,
+  x    = ~genero,
+  y    = ~precio,
+  color = ~genero,
+  colors = colores,
+  type  = "box",
+  boxpoints = "outliers",
+  showlegend = FALSE
+) %>%
+  layout(
+    xaxis = list(title = ""),
+    yaxis = list(title = "Precio $AR")
+  )
+```
+
+````
+:::
+
+
+## Ahora te toca a vos  
+::: columns
+::: {.column width="40%"}
+- Crea un proyecto Quarto setendo el formato como dashboard 
+- Indica un título en YAML
+- En un primer chunck de setup llamá a las librerías `tidyverse`, `dt` y `plotly` y carga los datos de libros.
+- A cada tarjeta asignales títulos usando la opción `#| title: `
+- Setea las dos últimas tarjetas como tabs usando `{.tabset}` en la definición del nivel de la fila.
+:::
+
+::: {.column width="60%"}
+### Cuando termines deberias tener algo así
+![](images/first-dashboard-excercise-goal.gif)
+:::
+
+:::
+
+# Más objetos máaaaaaaaaas
+
+## Value boxes
+
+-   Las value boxes son un tipo de tarjeta especial que sirve para llevar la ateción a alguna medida de resumen específica o valor de referencia.
+-   Podes crear value boxes en alguna celda especifica o como divs en el markdown
+-   Las value boxes usan íconos de Bootstrap y les podemos setaar color (por ej con códigos HEX) o si usaste un alias de color como parte de tu scss (no llegamos a ver este tema en esta presenta 😞)
+
+## Paso 1: definimos los valores
+
+::: r-box
+````{.yaml filename="dashboard-r.qmd"}
+---
+title: "Valueboxes"
+format: dashboard
+---
+
+```{{r}}
+library(ggplot2)
+library(dplyr)
+```
+## Value boxes {height="25%"}
+```{{r}}
+#| label: calculate-values
+lowest_mileage_cty <- mpg |>
+  filter(cty == min(cty)) |>
+  distinct(cty) |>
+  pull(cty)
+
+highest_mileage_cty <- mpg |>
+  filter(cty == max(cty)) |>
+  distinct(cty) |>
+  pull(cty)
+  
+rounded_mean_city_mileage <- mpg |>
+  summarize(round(mean(cty), 2)) |>
+  pull()
+```
+````
+:::
+
+## Paso 2: hacemos los value en cuestion 
+
+Usamos las opciones:
+
+`#| content: valuebox`
+
+`#| icon: nombre-del-icono`
+
+`#| color: nombre o hex del color`
+
+También es recomendable que seteemos la opción `#| expandable: false` (ya que no tiene sentido expandir estos elementos.) y que le pongamos un alto a esa fila de no más del 30% 
+
+::: r-boxes
+````{.yaml filename="dashboard-r.qmd"}
+```{{r}}
+#| content: valuebox
+#| title: "Un título"
+#| icon: fuel-pump-fill
+#| color: danger
+#| expandable: false
+
+paste(lowest_mileage_cty, "mpg")
+```
+````
+:::
+
+## Agregar logos y themes
+
+Como en otras publicaciones de Quarto podemos tunear los themes (usando scss) o los mismos que ya vienen cargados de Bootstrap así como agregar logos en el slider superior. Todas cosas que podemos hacer desde el YAML
+
+::: r-boxes
+
+````{.yaml filename="dashboard-r.qmd"}
+---
+title: "Tablero de libros"
+format: dashboard
+theme: minty
+logo: "images/logo.png"
+editor: source
+---
+
+````
+
+:::
+
+## Ahora ustedes
+
+
+::: columns
+::: {.column width="50%"}
+![](images/more_rial.jpg)
+:::
+::: {.column width="50%"}
+- Agregá tres value boxes indicando precio promedio, raiting promedio y porcentaje de libros que son ebook 
+- Podes usar los iconos "cash","star" y "phone" correspondientemente.
+- Cambia el theme del dashboard a uno de tu elección (por ej. minty) y agregá la imagen "images/logo.png" como logo desde YAML
+
+:::
+:::
+
+Podes copiar el cálculo de los value boxes de aquí
+
+::: r-box
+````{.yaml filename="dashboard-r.qmd"}
+#| label: calculo de elementos para value-boxes
+
+## precio promedio
+precio_prom <- libros %>%
+  filter(stock == "Disponible") %>%
+  summarise(promedio = mean(precio, na.rm = TRUE)) %>%
+  pull(promedio)
+
+## puntaje promedio
+rating_prom <- libros %>%
+  filter(stock == "Disponible") %>%
+  summarise(promedio = mean(rating, na.rm = TRUE)) %>%
+  pull(promedio)
+
+## porcentaje de libros en digital
+pct_ebook <- libros %>%
+  summarise(pct = mean(ebook == "Sí", na.rm = TRUE)*100) %>%
+  pull(pct)
+````
+:::
+
+
+## Cuando termines debería quedar algo como esto
+
+![](images/first-dashboard-excercise-goal-2.png)
+
+
+# BONUS: Crosstalk para un poquito de interactividad
+
+## ¿Qué es crostalk?
+
+-   Crosstalk facilita la vinculación de múltiples widgets HTML dentro de una página R Markdown, un tablero de Quarto o una aplicación Shiny.
+
+-   La API principal de Crosstalk es un tipo de objeto llamado SharedData que encapsula el dataframe y lo pasa al widget que querramos usar.
+
+-   Con Crosstalk vamos a poder laburar con widgets como `plotly()`, `leaflet()` o `dt()`
+
+-   Además algunos autores han agregado otros paquetes compatibles como `SummaryWidget()` de Kent Johnson o `kpiwidget()` de Arnold Kakas (que vamos a ver en seguida).
+
+
+
+
+## Filtros en crosstalk
+
+Crosstalk también admite el uso de filtros (parecidos a los que tenemos en shiny), pero con la ventaja de que estamos trabajando con un html estático.
+
+
+```{r}
+#| label: ejemplo-filtros-crosstalk
+#| output-location: slide
+#| echo: true
+#| warning: false
+
+library(crosstalk)
+library(plotly)
+
+# Creamos un nuveo objeto compartido
+shared_mtcars <- SharedData$new(mtcars)
+
+bscols( # lo ordeno en columnas
+  widths = c(3, NA, NA),
+  
+  # Filtros interactivos en fomrato lista
+  list(
+    filter_checkbox("cyl", "Cilindros", shared_mtcars, ~cyl, inline = TRUE),
+    filter_slider("hp", "Caballos", shared_mtcars, ~hp, width = "100%"),
+    filter_select("auto", "Automatico", shared_mtcars, ~ifelse(am == 0, "Yes", "No"))
+  ),
+  
+  # Primer gráfico plotly 
+  plot_ly(shared_mtcars, x = ~wt, y = ~mpg, color = ~factor(cyl),
+          type = "scatter", mode = "markers") %>%
+    layout(xaxis = list(title = "Peso"),
+           yaxis = list(title = "Millas por galón")),
+  
+  # Segundo gráfico plotly 
+  plot_ly(shared_mtcars, x = ~hp, y = ~qsec, color = ~factor(cyl),
+          type = "scatter", mode = "markers") %>%
+    layout(xaxis = list(title = "Caballos"),
+           yaxis = list(title = "1/4 milla"))
+)
+```
+
+
+## El paquete `kpiwidget` 
+
+-   `kpiwidget()` (y su función homonima) nos permite crear indicadores clave de rendimiento (KPI) en los paneles de Quarto con crosstalk.
+
+-   Podemos hacer una serie de datos resumen símples como sumas, promedios, minimos y máximos así ratios o el share de un determinado segmento.
+
+Veamos un uso básico ...
+
+::: r-boxes
+````{.yaml filename="dashboard-r.qmd"}
+
+# cargamos las librerías
+library(crosstalk)
+library(kpiwidget)
+
+# Envolvemos nuestra base en SharedData:
+sd <- SharedData$new(mtcars)
+
+# Mostramos el promnedio de la variable mpg (millas por galón) para autos de 4 cilindros.
+kpiwidget(sd, 
+          kpi = "mean", 
+          column = "mpg",
+          selection = ~ cyl == 4
+          )
+
+````
+:::
+
+
+## Aplicando esto a nuestro dashboard de libros...
+
+-   **Paso 1:** Vamos a cambiar un poco el layout pasando a dos columnas: una la vamos a usar como sidebar para los filtros y otra la vamos a mentener como cuerpo de nuestro 
+
+-   **Paso 2:** Creamos el objeto compartido `shared_libros` con `ShareData$new` de CrossTalk a partir de nuestra tabla de libros 
+
+-   **Paso 3:** En el sidebar de filtros creamos tres tarjetas con los filtros usando las funciones así:
+
+::: r-boxes
+````{.yaml filename="dashboard-r.qmd"}
+## Filters {.sidebar}
+
+```{{r}}
+#| label: filtro-generos
+filter_select("filtro_genero", "Género", shared_libros, ~genero, multiple = TRUE)
+```
+<br>
+```{{r}}
+#| label: filtro-precio
+filter_slider("filtro_precio", "Precio (ARS)", shared_libros, ~precio, width = "100%")
+```
+<br>
+```{{r}}
+#| label: filtro-ebook
+filter_checkbox("filtro_ebook", "Disponible en Ebook", shared_libros, ~ebook, inline = TRUE)
+```
+````
+:::
+
+-   **Paso4:**: En los gráficos vamos a reemplazar la tabla libros por shared_libros
+
+y entonces...
+
+## Tablero con crosstalk 
+
+![](images/first-dashboard-excercise-goal_3.gif)
+
 
 # Antes de que te vayas..
 

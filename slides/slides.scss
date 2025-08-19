@@ -78,10 +78,10 @@ $min-contrast-ratio:   7;
   margin-top: 1em;
 }
 
-.reveal .slide h1, 
+.reveal .slide h1,
 .reveal .slide h2 {
-  margin-top: 1.5em; 
-  margin-bottom: 1.1em; 
+  margin-top: 1.5em;
+  margin-bottom: 1.1em;
 }
 
 
@@ -186,4 +186,26 @@ $min-contrast-ratio:   7;
 .reveal h2.compact-title {
   margin-top: 0em !important; // Ajusta según la reducción de espacio que desees
   margin-bottom: 0em !important;
+}
+
+// Class for r code boxes
+
+.reveal .slide .r-box {
+  margin-bottom: 2px;
+  margin-top: 6px;
+  border-left: solid 5px #3767B6;
+  background: #BBBDC050 center no-repeat;
+}
+
+// Class for special slides
+
+.reveal .slide .your-turn {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  border-left: solid 5px #59799e;
+  background-color: #59799e50;
 }

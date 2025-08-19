@@ -1,0 +1,150 @@
+---
+title: "Tablero de libros"
+format: dashboard
+theme: minty
+logo: "images/logo.png"
+editor: source
+embed-resources: true
+---
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(DT)
+library(plotly)
+
+
+
+# Cargo datos
+libros <- read.csv("datos/libros.csv")|> 
+  mutate(titulo = str_to_title(titulo))
+
+# colores para géneros
+colores <- RColorBrewer::brewer.pal(length(unique(libros$genero)), "Set3")
+
+```
+
+```{r}
+#| label: calculo de elementos para value-boxes
+
+## precio promedio
+precio_prom <- libros %>%
+  filter(stock == "Disponible") %>%
+  summarise(promedio = mean(precio, na.rm = TRUE)) %>%
+  pull(promedio)
+
+## puntaje promedio
+rating_prom <- libros %>%
+  filter(stock == "Disponible") %>%
+  summarise(promedio = mean(rating, na.rm = TRUE)) %>%
+  pull(promedio)
+
+## porcentaje de libros en digital
+pct_ebook <- libros %>%
+  summarise(pct = mean(ebook == "Sí", na.rm = TRUE)*100) %>%
+  pull(pct)
+
+
+```
+## Fila 1
+
+```{r}
+#| label: value-box-precio-promedio
+#| content: valuebox
+#| title: "Precio Promedio (ARS)"
+#| icon: "cash"
+#| color: "#32a852"
+#| expandable: false
+
+scales::comma(round(precio_prom,0))
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Rating Promedio"
+#| icon: "star"
+#| color: "#ded371"
+#| expandable: false
+
+scales::comma(round(rating_prom,0))
+```
+
+```{r}
+#| content: valuebox
+#| title: "% disponible Ebook"
+#| icon: "phone"
+#| color: "#a8a8a8"
+
+scales::comma(round(pct_ebook,0))
+```
+
+## Fila 2 Tabla ranking
+
+```{r}
+#| label: tabla-ranking-libros
+#| title: Ranking Top 10
+
+datatable(
+  libros,
+  options = list(
+    pageLength = 10,
+    order = list(list(0, 'asc')), # ordenamos la tabla por ranking
+    dom = 'ftp',                  # solo filtro arriba (f), tabla (t) y paginación (p)
+    language = list(
+      searchPlaceholder = "Buscar...",
+      search = "" # saca el texto de 'Search:'
+    )
+  ),
+  class = 'table table-striped table-hover table-sm', # usamos Bootstrap 
+  filter = "none",   # sin filtros en columnas
+  rownames = FALSE,
+  colnames = c("Puesto","Título","Autoría","$AR","Stock","Puntaje","Género","Pág.","Ebook")
+)
+```
+
+## Fila 3 Analisis por género
+
+```{r}
+#| label: bars_ptj_genero
+#| title: Puntaje promedio por género
+#| warning: false
+
+plot_ly(
+  data = libros,
+  x    = ~genero,
+  y    = ~rating,
+  type = "bar",
+  transforms = list(list(
+    type = "aggregate",
+    groups = ~genero,
+    aggregations = list(
+      list(target = "y", func = "avg", enabled = TRUE)
+    )
+  )),
+  marker = list(color = colores),
+  showlegend = FALSE
+)
+```
+
+
+```{r}
+#| label: boxplot_precio_grafico
+#| title: Precio por genero
+#| warning: false
+
+plot_ly(
+  data = libros,
+  x    = ~genero,
+  y    = ~precio,
+  color = ~genero,
+  colors = colores,
+  type  = "box",
+  boxpoints = "outliers",
+  showlegend = FALSE
+) %>%
+  layout(
+    xaxis = list(title = ""),
+    yaxis = list(title = "Precio $AR")
+  )
+```

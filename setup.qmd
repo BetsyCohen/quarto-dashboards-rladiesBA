@@ -24,7 +24,7 @@ Instalá los siguientes paquetes copiando y pegando el siguiente código en la c
 
 
 paquetes_lista <- c(
-  "tidyverse", "gt", "ggthemes","crosstalk","kpiwidget"
+  "tidyverse", "dt", "plotly","crosstalk","kpiwidget"
 )
 install.packages(paquetes_lista)
 
