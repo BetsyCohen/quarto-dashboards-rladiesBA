@@ -10,3 +10,6 @@ title: "Materiales"
 <iframe class="slides" src="/slides/index.html"></iframe>
 ```
 
+## Ejercicios 
+
+Podes descargar los ejercicios desde [este enlace al zip](exercises.zip)

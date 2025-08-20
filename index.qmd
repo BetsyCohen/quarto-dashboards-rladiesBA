@@ -14,7 +14,7 @@ editor:
 
 🏫 UNTREF
 
-🐱 [Repositorio en GitHub](https://github.com/JFormoso/quarto-dasboards-rladiesBA)
+🐱 [Repositorio en GitHub](https://github.com/BetsyCohen/quarto-dashboards-rladiesBA)
 
 \
 
