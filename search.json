@@ -1,0 +1,364 @@
+[
+  {
+    "objectID": "slides/index.html#mientras-esperás-a-que-comencemos",
+    "href": "slides/index.html#mientras-esperás-a-que-comencemos",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Mientras esperás a que comencemos…",
+    "text": "Mientras esperás a que comencemos…\nAsegurate de haber seguido las instrucciones de configuración y que tenés los programas y paquetes que necesitás para seguir el taller"
+  },
+  {
+    "objectID": "slides/index.html#agradecimientos",
+    "href": "slides/index.html#agradecimientos",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Agradecimientos",
+    "text": "Agradecimientos\nEste taller y sus materiales se basaron en:\nBuild-a-Dashboard dictado por Mine Çetinkaya-Rundel\n\n\nAuspisian RLadies Buenos Aires:"
+  },
+  {
+    "objectID": "slides/index.html#codigo-de-conducta",
+    "href": "slides/index.html#codigo-de-conducta",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Codigo de conducta",
+    "text": "Codigo de conducta\nTodos los espacios de participación de R-Ladies Global y RLadies Buenos Aires, incluyendo reuniones presenciales o virtuales, Twitter, Slack y listas de correo se rigen por el Código de conducta de RLadies."
+  },
+  {
+    "objectID": "slides/index.html#licencia",
+    "href": "slides/index.html#licencia",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Licencia",
+    "text": "Licencia\nEstos materiales están publicados bajo la licencia Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA), la cual implica:\n\nAtribución: Podés compartir y adaptar el material siempre que reconozcas la autoría de forma adecuada.\nUso no comercial: No está permitido usar el material con fines comerciales.\nCompartir igual: Si adaptás o transformas el material, debés distribuirlo bajo la misma licencia."
+  },
+  {
+    "objectID": "slides/index.html#hacemos-a-este-este-bello-espacio",
+    "href": "slides/index.html#hacemos-a-este-este-bello-espacio",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Hacemos a este este bello espacio…",
+    "text": "Hacemos a este este bello espacio…\n\n\n\nMaría Nanton\n\nJesica Formoso\n\n\nBetsabé Cohen\n\n\nVirginia García Alonso"
+  },
+  {
+    "objectID": "slides/index.html#la-unidad-fundamental-en-los-tableros-de-quarto-son-las-tarjetas",
+    "href": "slides/index.html#la-unidad-fundamental-en-los-tableros-de-quarto-son-las-tarjetas",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "La unidad fundamental en los tableros de Quarto son las tarjetas",
+    "text": "La unidad fundamental en los tableros de Quarto son las tarjetas"
+  },
+  {
+    "objectID": "slides/index.html#por-default-las-tarjetas-se-ordenan-en-filas-y-columnas",
+    "href": "slides/index.html#por-default-las-tarjetas-se-ordenan-en-filas-y-columnas",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Por default las tarjetas se ordenan en filas y columnas",
+    "text": "Por default las tarjetas se ordenan en filas y columnas"
+  },
+  {
+    "objectID": "slides/index.html#y-si-queremos-un-layout-más-avanzado-vamos-a-poder-agregar-páginas-tabsets-y-sidebars",
+    "href": "slides/index.html#y-si-queremos-un-layout-más-avanzado-vamos-a-poder-agregar-páginas-tabsets-y-sidebars",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Y si queremos un layout más avanzado vamos a poder agregar páginas, tabsets, y sidebars",
+    "text": "Y si queremos un layout más avanzado vamos a poder agregar páginas, tabsets, y sidebars"
+  },
+  {
+    "objectID": "slides/index.html#navegación",
+    "href": "slides/index.html#navegación",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Navegación",
+    "text": "Navegación\nTodos los tableros tienen una barra de navegación superior o `nav-bar` a la que le podemos agregar desde YAML diferentes elementos como botones de navegación (como links a linkedin, twitter) y botones personalizados\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat:\n  dashboard:\n    logo: images/rladies-hex.png\n    nav-buttons: [linkedin,twitter,github]\n---\n\n\n\n\n\n\n\n\nMás data sobre navegación\n\n\nPara aprendar más acreca del layout y controlar temas como la orientación, scrolleo, etc. consulta esta sección de la docu"
+  },
+  {
+    "objectID": "slides/index.html#trabajando-la-disposición",
+    "href": "slides/index.html#trabajando-la-disposición",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Trabajando la disposición",
+    "text": "Trabajando la disposición\nLas filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat: dashboard\n---\n\n## Row {height=70%}\n\n```{r}\n``` \n## Row {height=30%}\n```{r}\n``` \n```{r}\n```"
+  },
+  {
+    "objectID": "slides/index.html#paginado",
+    "href": "slides/index.html#paginado",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paginado",
+    "text": "Paginado\nPodemos agregar varias páginas a nuestro dashboard usando títulos del nivel 1 de Markdown.\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat: dashboard\n---\n\n# Page 1\n\n## Row {height=70%}\n\n```{r}\n``` \n## Row {height=30%}\n```{r}\n``` \n```{r}\n``` \n# Page 2\n```{r}\n``` \n```{r}\n```"
+  },
+  {
+    "objectID": "slides/index.html#tabset",
+    "href": "slides/index.html#tabset",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Tabset",
+    "text": "Tabset\nOtra opción muy linda es agregar solapas o tabsets indicando la clase .tabset a una columna o fila:\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat: dashboard\n---\n\n## Row \n\n```{r}\n``` \n## Row {.tabset}\n```{r}\n``` \n```{r}\n```"
+  },
+  {
+    "objectID": "slides/index.html#como-dijo-gilda-pasito-a-pasito",
+    "href": "slides/index.html#como-dijo-gilda-pasito-a-pasito",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Como dijo Gilda: pasito a pasito",
+    "text": "Como dijo Gilda: pasito a pasito"
+  },
+  {
+    "objectID": "slides/index.html#paso-1-armá-un-archivo-quarto-con-format-dashboard-en-el-yaml",
+    "href": "slides/index.html#paso-1-armá-un-archivo-quarto-con-format-dashboard-en-el-yaml",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paso 1: Armá un archivo Quarto con format: dashboard en el YAML",
+    "text": "Paso 1: Armá un archivo Quarto con format: dashboard en el YAML\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---"
+  },
+  {
+    "objectID": "slides/index.html#paso-2-cada-chunck-funciona-como-una-tarjeta",
+    "href": "slides/index.html#paso-2-cada-chunck-funciona-como-una-tarjeta",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paso 2: Cada chunck funciona como una tarjeta",
+    "text": "Paso 2: Cada chunck funciona como una tarjeta\nLos distintos niveles de las seccioines en que se ordenen esas tarjetas también podemos irlas agregando usando ##\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n\n```{r}\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```"
+  },
+  {
+    "objectID": "slides/index.html#paso-2-así-queda-nuestra-primera-tarjeta",
+    "href": "slides/index.html#paso-2-así-queda-nuestra-primera-tarjeta",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paso 2: Así queda nuestra primera tarjeta",
+    "text": "Paso 2: Así queda nuestra primera tarjeta\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n\n```{r}\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```"
+  },
+  {
+    "objectID": "slides/index.html#paso-3-sumamos-otra-tarjeta",
+    "href": "slides/index.html#paso-3-sumamos-otra-tarjeta",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paso 3: Sumamos otra tarjeta",
+    "text": "Paso 3: Sumamos otra tarjeta\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n\n```{r}\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```\n\n```{r}\nggplot(mpg, aes(x = drv)) +\n  geom_bar()\n```"
+  },
+  {
+    "objectID": "slides/index.html#paso-3-y-se-visualiza-abajo",
+    "href": "slides/index.html#paso-3-y-se-visualiza-abajo",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paso 3: Y se visualiza abajo",
+    "text": "Paso 3: Y se visualiza abajo\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n\n```{r}\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```\n\n```{r}\nggplot(mpg, aes(x = drv)) +\n  geom_bar()\n```"
+  },
+  {
+    "objectID": "slides/index.html#paso-4-a-cada-tarjeta-podemos-agregarle-un-título-usando-la-opción-title",
+    "href": "slides/index.html#paso-4-a-cada-tarjeta-podemos-agregarle-un-título-usando-la-opción-title",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:",
+    "text": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n\n```{r}\n#| title: Highway vs. city mileage\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```\n\n```{r}\n#| title: Drive types\nggplot(mpg, aes(x = drv)) +\n  geom_bar()\n```"
+  },
+  {
+    "objectID": "slides/index.html#paso-4-a-cada-tarjeta-podemos-agregarle-un-título-usando-la-opción-title-1",
+    "href": "slides/index.html#paso-4-a-cada-tarjeta-podemos-agregarle-un-título-usando-la-opción-title-1",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:",
+    "text": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n\n```{r}\n#| title: Highway vs. city mileage\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```\n\n```{r}\n#| title: Drive types\nggplot(mpg, aes(x = drv)) +\n  geom_bar()\n```"
+  },
+  {
+    "objectID": "slides/index.html#ahora-te-toca-a-vos",
+    "href": "slides/index.html#ahora-te-toca-a-vos",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Ahora te toca a vos",
+    "text": "Ahora te toca a vos\nVamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar aquí y vamos a crear una serie de visualizaciones simples usando plotly{}:\n\nUna tabla con un ranking de libros\nUn gráfico de barras con el raiting promedio por género\nUn Boxplot de precio por género\n\nPara agilizar el trabajo los gráficos ya se encuentran listos aquí:\n\n\n\ndashboard-r.qmd\n\n\n```{r}\n# Tabla en DT con libros\n\ndatatable(\n  libros,\n  options = list(\n    pageLength = 10,\n    order = list(list(0, 'asc')), # ordenamos la tabla por ranking\n    dom = 'ftp',                  # solo filtro arriba (f), tabla (t) y paginación (p)\n    language = list(\n      searchPlaceholder = \"Buscar...\",\n      search = \"\" # saca el texto de 'Search:'\n    )\n  ),\n  class = 'table table-striped table-hover table-sm', # usamos Bootstrap \n  filter = \"none\",   # sin filtros en columnas\n  rownames = FALSE,\n  colnames = c(\"Puesto\",\"Título\",\"Autoría\",\"$AR\",\"Stock\",\"Puntaje\",\"Género\",\"Pág.\",\"Ebook\")\n)\n\n```\n\n```{r}\n# Grafico 1 barplot raiting promedio por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~rating,\n  type = \"bar\",\n  transforms = list(list(\n    type = \"aggregate\",\n    groups = ~genero,\n    aggregations = list(\n      list(target = \"y\", func = \"avg\", enabled = TRUE)\n    )\n  )),\n  marker = list(color = colores),\n  showlegend = FALSE\n)\n```\n\n```{r}\n# Gráfico 2 boxplot de precios por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~precio,\n  color = ~genero,\n  colors = colores,\n  type  = \"box\",\n  boxpoints = \"outliers\",\n  showlegend = FALSE\n) %&gt;%\n  layout(\n    xaxis = list(title = \"\"),\n    yaxis = list(title = \"Precio $AR\")\n  )\n```"
+  },
+  {
+    "objectID": "slides/index.html#ahora-te-toca-a-vos-1",
+    "href": "slides/index.html#ahora-te-toca-a-vos-1",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Ahora te toca a vos",
+    "text": "Ahora te toca a vos\n\n\n\nCrea un proyecto Quarto setendo el formato como dashboard\nIndica un título en YAML\nEn un primer chunck de setup llamá a las librerías tidyverse, dt y plotly y carga los datos de libros.\nA cada tarjeta asignales títulos usando la opción #| title:\nSetea las dos últimas tarjetas como tabs usando {.tabset} en la definición del nivel de la fila.\n\n\nCuando termines deberias tener algo así"
+  },
+  {
+    "objectID": "slides/index.html#value-boxes",
+    "href": "slides/index.html#value-boxes",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Value boxes",
+    "text": "Value boxes\n\nLas value boxes son un tipo de tarjeta especial que sirve para llevar la ateción a alguna medida de resumen específica o valor de referencia.\nPodes crear value boxes en alguna celda especifica o como divs en el markdown\nLas value boxes usan íconos de Bootstrap y les podemos setaar color (por ej con códigos HEX) o si usaste un alias de color como parte de tu scss (no llegamos a ver este tema en esta presenta 😞)"
+  },
+  {
+    "objectID": "slides/index.html#paso-1-definimos-los-valores",
+    "href": "slides/index.html#paso-1-definimos-los-valores",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paso 1: definimos los valores",
+    "text": "Paso 1: definimos los valores\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Valueboxes\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\nlibrary(dplyr)\n```\n## Value boxes {height=\"25%\"}\n```{r}\n#| label: calculate-values\nlowest_mileage_cty &lt;- mpg |&gt;\n  filter(cty == min(cty)) |&gt;\n  distinct(cty) |&gt;\n  pull(cty)\n\nhighest_mileage_cty &lt;- mpg |&gt;\n  filter(cty == max(cty)) |&gt;\n  distinct(cty) |&gt;\n  pull(cty)\n  \nrounded_mean_city_mileage &lt;- mpg |&gt;\n  summarize(round(mean(cty), 2)) |&gt;\n  pull()\n```"
+  },
+  {
+    "objectID": "slides/index.html#paso-2-hacemos-los-value-en-cuestion",
+    "href": "slides/index.html#paso-2-hacemos-los-value-en-cuestion",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Paso 2: hacemos los value en cuestion",
+    "text": "Paso 2: hacemos los value en cuestion\nUsamos las opciones:\n#| content: valuebox\n#| icon: nombre-del-icono\n#| color: nombre o hex del color\nTambién es recomendable que seteemos la opción #| expandable: false (ya que no tiene sentido expandir estos elementos.) y que le pongamos un alto a esa fila de no más del 30%\n\n\n\ndashboard-r.qmd\n\n```{r}\n#| content: valuebox\n#| title: \"Un título\"\n#| icon: fuel-pump-fill\n#| color: danger\n#| expandable: false\n\npaste(lowest_mileage_cty, \"mpg\")\n```"
+  },
+  {
+    "objectID": "slides/index.html#agregar-logos-y-themes",
+    "href": "slides/index.html#agregar-logos-y-themes",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Agregar logos y themes",
+    "text": "Agregar logos y themes\nComo en otras publicaciones de Quarto podemos tunear los themes (usando scss) o los mismos que ya vienen cargados de Bootstrap así como agregar logos en el slider superior. Todas cosas que podemos hacer desde el YAML\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Tablero de libros\"\nformat: dashboard\ntheme: minty\nlogo: \"images/logo.png\"\neditor: source\n---"
+  },
+  {
+    "objectID": "slides/index.html#ahora-ustedes",
+    "href": "slides/index.html#ahora-ustedes",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Ahora ustedes",
+    "text": "Ahora ustedes\n\n\n\n\n\nAgregá tres value boxes indicando precio promedio, raiting promedio y porcentaje de libros que son ebook\nPodes usar los iconos “cash”,“star” y “phone” correspondientemente.\nCambia el theme del dashboard a uno de tu elección (por ej. minty) y agregá la imagen “images/logo.png” como logo desde YAML\n\n\nPodes copiar el cálculo de los value boxes de aquí\n\n\n\ndashboard-r.qmd\n\n#| label: calculo de elementos para value-boxes\n\n## precio promedio\nprecio_prom &lt;- libros %&gt;%\n  filter(stock == \"Disponible\") %&gt;%\n  summarise(promedio = mean(precio, na.rm = TRUE)) %&gt;%\n  pull(promedio)\n\n## puntaje promedio\nrating_prom &lt;- libros %&gt;%\n  filter(stock == \"Disponible\") %&gt;%\n  summarise(promedio = mean(rating, na.rm = TRUE)) %&gt;%\n  pull(promedio)\n\n## porcentaje de libros en digital\npct_ebook &lt;- libros %&gt;%\n  summarise(pct = mean(ebook == \"Sí\", na.rm = TRUE)*100) %&gt;%\n  pull(pct)"
+  },
+  {
+    "objectID": "slides/index.html#cuando-termines-debería-quedar-algo-como-esto",
+    "href": "slides/index.html#cuando-termines-debería-quedar-algo-como-esto",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Cuando termines debería quedar algo como esto",
+    "text": "Cuando termines debería quedar algo como esto"
+  },
+  {
+    "objectID": "slides/index.html#qué-es-crostalk",
+    "href": "slides/index.html#qué-es-crostalk",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "¿Qué es crostalk?",
+    "text": "¿Qué es crostalk?\n\nCrosstalk facilita la vinculación de múltiples widgets HTML dentro de una página R Markdown, un tablero de Quarto o una aplicación Shiny.\nLa API principal de Crosstalk es un tipo de objeto llamado SharedData que encapsula el dataframe y lo pasa al widget que querramos usar.\nCon Crosstalk vamos a poder laburar con widgets como plotly(), leaflet() o dt()\nAdemás algunos autores han agregado otros paquetes compatibles como SummaryWidget() de Kent Johnson o kpiwidget() de Arnold Kakas (que vamos a ver en seguida)."
+  },
+  {
+    "objectID": "slides/index.html#filtros-en-crosstalk",
+    "href": "slides/index.html#filtros-en-crosstalk",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Filtros en crosstalk",
+    "text": "Filtros en crosstalk\nCrosstalk también admite el uso de filtros (parecidos a los que tenemos en shiny), pero con la ventaja de que estamos trabajando con un html estático.\n\nlibrary(crosstalk)\nlibrary(plotly)\n\n# Creamos un nuveo objeto compartido\nshared_mtcars &lt;- SharedData$new(mtcars)\n\nbscols( # lo ordeno en columnas\n  widths = c(3, NA, NA),\n  \n  # Filtros interactivos en fomrato lista\n  list(\n    filter_checkbox(\"cyl\", \"Cilindros\", shared_mtcars, ~cyl, inline = TRUE),\n    filter_slider(\"hp\", \"Caballos\", shared_mtcars, ~hp, width = \"100%\"),\n    filter_select(\"auto\", \"Automatico\", shared_mtcars, ~ifelse(am == 0, \"Yes\", \"No\"))\n  ),\n  \n  # Primer gráfico plotly \n  plot_ly(shared_mtcars, x = ~wt, y = ~mpg, color = ~factor(cyl),\n          type = \"scatter\", mode = \"markers\") %&gt;%\n    layout(xaxis = list(title = \"Peso\"),\n           yaxis = list(title = \"Millas por galón\")),\n  \n  # Segundo gráfico plotly \n  plot_ly(shared_mtcars, x = ~hp, y = ~qsec, color = ~factor(cyl),\n          type = \"scatter\", mode = \"markers\") %&gt;%\n    layout(xaxis = list(title = \"Caballos\"),\n           yaxis = list(title = \"1/4 milla\"))\n)"
+  },
+  {
+    "objectID": "slides/index.html#filtros-en-crosstalk-output",
+    "href": "slides/index.html#filtros-en-crosstalk-output",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Filtros en crosstalk",
+    "text": "Filtros en crosstalk\n\n\n\n\n\nCilindros\n\n\n\n4\n\n\n\n6\n\n\n\n8\n\n\n\n\n\nCaballos\n\n\n\n\nAutomatico"
+  },
+  {
+    "objectID": "slides/index.html#el-paquete-kpiwidget",
+    "href": "slides/index.html#el-paquete-kpiwidget",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "El paquete kpiwidget",
+    "text": "El paquete kpiwidget\n\nkpiwidget() (y su función homonima) nos permite crear indicadores clave de rendimiento (KPI) en los paneles de Quarto con crosstalk.\nPodemos hacer una serie de datos resumen símples como sumas, promedios, minimos y máximos así ratios o el share de un determinado segmento.\n\nVeamos un uso básico …\n\n\n\ndashboard-r.qmd\n\n\n# cargamos las librerías\nlibrary(crosstalk)\nlibrary(kpiwidget)\n\n# Envolvemos nuestra base en SharedData:\nsd &lt;- SharedData$new(mtcars)\n\n# Mostramos el promnedio de la variable mpg (millas por galón) para autos de 4 cilindros.\nkpiwidget(sd, \n          kpi = \"mean\", \n          column = \"mpg\",\n          selection = ~ cyl == 4\n          )"
+  },
+  {
+    "objectID": "slides/index.html#aplicando-esto-a-nuestro-dashboard-de-libros",
+    "href": "slides/index.html#aplicando-esto-a-nuestro-dashboard-de-libros",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Aplicando esto a nuestro dashboard de libros…",
+    "text": "Aplicando esto a nuestro dashboard de libros…\n\nPaso 1: Vamos a cambiar un poco el layout pasando a dos columnas: una la vamos a usar como sidebar para los filtros y otra la vamos a mentener como cuerpo de nuestro\nPaso 2: Creamos el objeto compartido shared_libros con ShareData$new de CrossTalk a partir de nuestra tabla de libros\nPaso 3: En el sidebar de filtros creamos tres tarjetas con los filtros usando las funciones así:\n\n\n\n\ndashboard-r.qmd\n\n## Filters {.sidebar}\n\n```{r}\n#| label: filtro-generos\nfilter_select(\"filtro_genero\", \"Género\", shared_libros, ~genero, multiple = TRUE)\n```\n&lt;br&gt;\n```{r}\n#| label: filtro-precio\nfilter_slider(\"filtro_precio\", \"Precio (ARS)\", shared_libros, ~precio, width = \"100%\")\n```\n&lt;br&gt;\n```{r}\n#| label: filtro-ebook\nfilter_checkbox(\"filtro_ebook\", \"Disponible en Ebook\", shared_libros, ~ebook, inline = TRUE)\n```\n\n\n\nPaso4:: En los gráficos vamos a reemplazar la tabla libros por shared_libros\n\ny entonces…"
+  },
+  {
+    "objectID": "slides/index.html#tablero-con-crosstalk",
+    "href": "slides/index.html#tablero-con-crosstalk",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Tablero con crosstalk",
+    "text": "Tablero con crosstalk"
+  },
+  {
+    "objectID": "slides/index.html#seguinos",
+    "href": "slides/index.html#seguinos",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Seguinos",
+    "text": "Seguinos\n @rladiesba\n @RLadiesBA\n RLadies Buenos Aires\n @RLadiesBuenosAires\n https://rladiesba.netlify.app/"
+  },
+  {
+    "objectID": "slides/index.html#no-te-pierdas-las-novedades",
+    "href": "slides/index.html#no-te-pierdas-las-novedades",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "¡No te pierdas las novedades!",
+    "text": "¡No te pierdas las novedades!\n¡En 2025 hicimos!\n\nClub de lectura del libro Mastering Shiny de Hadley Wickham.\nMeetup sobre Quarto y tableros con Quarto💜\nDebugging! Muy pronto"
+  },
+  {
+    "objectID": "materiales.html",
+    "href": "materiales.html",
+    "title": "Materiales",
+    "section": "",
+    "text": "Accedé a las diapositivas en pantalla completa.",
+    "crumbs": [
+      "Materiales"
+    ]
+  },
+  {
+    "objectID": "materiales.html#diapositivas-de-la-presentación",
+    "href": "materiales.html#diapositivas-de-la-presentación",
+    "title": "Materiales",
+    "section": "",
+    "text": "Accedé a las diapositivas en pantalla completa.",
+    "crumbs": [
+      "Materiales"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "",
+    "text": "📆 25 de Agosto, 2025\n⏰18:30 - Argentina (UTC -3)\n🏫 UNTREF\n🐱 Repositorio en GitHub",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#fecha-y-ubicación",
+    "href": "index.html#fecha-y-ubicación",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "",
+    "text": "📆 25 de Agosto, 2025\n⏰18:30 - Argentina (UTC -3)\n🏫 UNTREF\n🐱 Repositorio en GitHub",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#sobre-este-taller",
+    "href": "index.html#sobre-este-taller",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Sobre este taller",
+    "text": "Sobre este taller\nQuarto es un sistema de publicación de código abierto diseñado para crear documentos científicos y técnicos de manera dinámica y reproducible. Tras nuestro primer encuentro introductoroio a Quarto con Jesi Formoso avanzamos sobre otra de las funcionalidades de esta plataforma: los tableros.\nVamos a recorrer sus principales funcionalidades y vamos a sumarle un poquito de magia interactiva con el paquete crosstalk y su kpi widget.",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#objetivos-de-aprendizaje",
+    "href": "index.html#objetivos-de-aprendizaje",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Objetivos de aprendizaje",
+    "text": "Objetivos de aprendizaje\n\nContinuar familiarizandose con Quarto en este caso como continuidad de flexdashboard.\nIdentificar los componentes básicos y layout que propone este formato.\nIncorporar gráficos y tarjetas en el diseño.\nSumar funcionalidades interactivas del paquete crosstalk y su kpi widget.",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#instructora",
+    "href": "index.html#instructora",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Instructora",
+    "text": "Instructora\n\nBetsy Cohen es socióloga especializada en gestión y políticas culturales. Forma parte del equipo de organizadoras de RLadies Buenos Aires 💜 y co-coordinadora del Núcleo de Innovación Social, un laboratorio de trabajo con un enfoque multidisciplinario, arraigado en las ciencias sociales.",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#código-de-conducta",
+    "href": "index.html#código-de-conducta",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Código de Conducta",
+    "text": "Código de Conducta\nR-Ladies se dedica a proporcionar una experiencia libre de acoso para todes. Conocé el Código de Conducta que se aplica en todos los espacios de participación de R-Ladies Global y del capitulo, incluyendo reuniones presenciales o virtuales, Twitter, Slack, listas de correo, tanto online como offline.",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#agradecimientos",
+    "href": "index.html#agradecimientos",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Agradecimientos",
+    "text": "Agradecimientos\nLos materiales de este taller se basaron en el taller Build-a-Dashboard.\nEste taller fue auspiciado por:\n\n\ny un agradecimiento especial a la Universidad Nacional Tres de Febrero por facilitarnos el espacio para este encuentro presencial y por acompañar la difusión del mismo.",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "Licencia",
+    "section": "",
+    "text": "© 2024 Betsy Cohen\nEstos materiales están publicados bajo la licencia Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA), la cual implica:\n\nAtribución: Podés compartir y adaptar el material siempre que reconozcas la autoría de forma adecuada.\nUso no comercial: No está permitido usar el material con fines comerciales.\nCompartir igual: Si adaptás o transformas el material, debés distribuirlo bajo la misma licencia.",
+    "crumbs": [
+      "Licencia"
+    ]
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Instrucciones de configuración",
+    "section": "",
+    "text": "Antes del taller, por favor completa los siguientes pasos:\n1. Software\nDescargá e instalá las últimas versiones de R, RStudio y Quarto:\n\nR 4.2.3 o superior: https://cran.r-project.org\n\nRStudio 2024.04.0 or superior: https://posit.co/download/rstudio-desktop\n\nQuarto 1.4 or superior: https://quarto.org/docs/download\n\n2. Paquetes\nInstalá los siguientes paquetes copiando y pegando el siguiente código en la consola de RStudio:\n\npaquetes_lista &lt;- c(\n  \"tidyverse\", \"dt\", \"plotly\",\"crosstalk\",\"kpiwidget\"\n)\ninstall.packages(paquetes_lista)\n\n3. Ejercicios\nDescargá el archivo Taller-quarto-ejercicios.rar y descomprimilo en tu computadora.",
+    "crumbs": [
+      "Instrucciones de configuración"
+    ]
+  }
+]
