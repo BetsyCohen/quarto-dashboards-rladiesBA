@@ -7,10 +7,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b6e6edf6cb1293d7f667c2f39c143ab5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c2894b54f4b00a27b9651b11dcf5df54.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+  <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="Betsy Cohen RLadies Buenos Aires">
   <title>quarto-rladiesBA – Armá un Dashboard con R y Quarto</title>
@@ -191,37 +191,21 @@
     }
   </style>
   <script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
-
   <link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-
   <script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
-
   <script src="../site_libs/ionrangeslider-javascript-2.3.1/js/ion.rangeSlider.min.js"></script>
-
   <script src="../site_libs/strftime-0.9.2/strftime-min.js"></script>
-
   <link href="../site_libs/ionrangeslider-css-2.3.1/css/ion.rangeSlider.css" rel="stylesheet">
-
   <link href="../site_libs/selectize-0.12.4/css/selectize.bootstrap3.css" rel="stylesheet">
-
   <script src="../site_libs/selectize-0.12.4/js/selectize.min.js"></script>
-
   <link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-
   <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-
   <script src="../site_libs/plotly-binding-4.11.0/plotly.js"></script>
-
   <script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
-
   <link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-
   <script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link href="../site_libs/bootstrap-grid-3.4.1/bootstrap-grid.min.css" rel="stylesheet">
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -1322,80 +1306,42 @@ Betsy Cohen<br>RLadies Buenos Aires
       });
     </script>
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
