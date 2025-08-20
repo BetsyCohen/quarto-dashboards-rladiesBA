@@ -144,7 +144,7 @@
     "href": "slides/index.html#ahora-te-toca-a-vos",
     "title": "Armá un Dashboard con R y Quarto",
     "section": "Ahora te toca a vos",
-    "text": "Ahora te toca a vos\nVamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar aquí y vamos a crear una serie de visualizaciones simples usando plotly{}:\n\nUna tabla con un ranking de libros\nUn gráfico de barras con el raiting promedio por género\nUn Boxplot de precio por género\n\nPara agilizar el trabajo los gráficos ya se encuentran listos aquí:\n\n\n\ndashboard-r.qmd\n\n\n```{r}\n# Tabla en DT con libros\n\ndatatable(\n  libros,\n  options = list(\n    pageLength = 10,\n    order = list(list(0, 'asc')), # ordenamos la tabla por ranking\n    dom = 'ftp',                  # solo filtro arriba (f), tabla (t) y paginación (p)\n    language = list(\n      searchPlaceholder = \"Buscar...\",\n      search = \"\" # saca el texto de 'Search:'\n    )\n  ),\n  class = 'table table-striped table-hover table-sm', # usamos Bootstrap \n  filter = \"none\",   # sin filtros en columnas\n  rownames = FALSE,\n  colnames = c(\"Puesto\",\"Título\",\"Autoría\",\"$AR\",\"Stock\",\"Puntaje\",\"Género\",\"Pág.\",\"Ebook\")\n)\n\n```\n\n```{r}\n# Grafico 1 barplot raiting promedio por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~rating,\n  type = \"bar\",\n  transforms = list(list(\n    type = \"aggregate\",\n    groups = ~genero,\n    aggregations = list(\n      list(target = \"y\", func = \"avg\", enabled = TRUE)\n    )\n  )),\n  marker = list(color = colores),\n  showlegend = FALSE\n)\n```\n\n```{r}\n# Gráfico 2 boxplot de precios por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~precio,\n  color = ~genero,\n  colors = colores,\n  type  = \"box\",\n  boxpoints = \"outliers\",\n  showlegend = FALSE\n) %&gt;%\n  layout(\n    xaxis = list(title = \"\"),\n    yaxis = list(title = \"Precio $AR\")\n  )\n```"
+    "text": "Ahora te toca a vos\nVamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar aquí y vamos a crear una serie de visualizaciones simples usando plotly{}:\n\nUna tabla con un ranking de libros\nUn gráfico de barras con el raiting promedio por género\nUn Boxplot de precio por género\n\n\n\n\n\n\n\nTip\n\n\nPara agilizar el trabajo los gráficos ya se encuentran listos aquí:\n\n\n\ndashboard-r.qmd\n\n\n```{r}\n# Tabla en DT con libros\n\ndatatable(\n  libros,\n  options = list(\n    pageLength = 10,\n    order = list(list(0, 'asc')), # ordenamos la tabla por ranking\n    dom = 'ftp',                  # solo filtro arriba (f), tabla (t) y paginación (p)\n    language = list(\n      searchPlaceholder = \"Buscar...\",\n      search = \"\" # saca el texto de 'Search:'\n    )\n  ),\n  class = 'table table-striped table-hover table-sm', # usamos Bootstrap \n  filter = \"none\",   # sin filtros en columnas\n  rownames = FALSE,\n  colnames = c(\"Puesto\",\"Título\",\"Autoría\",\"$AR\",\"Stock\",\"Puntaje\",\"Género\",\"Pág.\",\"Ebook\")\n)\n\n```\n\n```{r}\n# Grafico 1 barplot raiting promedio por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~rating,\n  type = \"bar\",\n  transforms = list(list(\n    type = \"aggregate\",\n    groups = ~genero,\n    aggregations = list(\n      list(target = \"y\", func = \"avg\", enabled = TRUE)\n    )\n  )),\n  marker = list(color = colores),\n  showlegend = FALSE\n)\n```\n\n```{r}\n# Gráfico 2 boxplot de precios por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~precio,\n  color = ~genero,\n  colors = colores,\n  type  = \"box\",\n  boxpoints = \"outliers\",\n  showlegend = FALSE\n) %&gt;%\n  layout(\n    xaxis = list(title = \"\"),\n    yaxis = list(title = \"Precio $AR\")\n  )\n```"
   },
   {
     "objectID": "slides/index.html#ahora-te-toca-a-vos-1",
@@ -186,7 +186,7 @@
     "href": "slides/index.html#ahora-ustedes",
     "title": "Armá un Dashboard con R y Quarto",
     "section": "Ahora ustedes",
-    "text": "Ahora ustedes\n\n\n\n\n\nAgregá tres value boxes indicando precio promedio, raiting promedio y porcentaje de libros que son ebook\nPodes usar los iconos “cash”,“star” y “phone” correspondientemente.\nCambia el theme del dashboard a uno de tu elección (por ej. minty) y agregá la imagen “images/logo.png” como logo desde YAML\n\n\nPodes copiar el cálculo de los value boxes de aquí\n\n\n\ndashboard-r.qmd\n\n#| label: calculo de elementos para value-boxes\n\n## precio promedio\nprecio_prom &lt;- libros %&gt;%\n  filter(stock == \"Disponible\") %&gt;%\n  summarise(promedio = mean(precio, na.rm = TRUE)) %&gt;%\n  pull(promedio)\n\n## puntaje promedio\nrating_prom &lt;- libros %&gt;%\n  filter(stock == \"Disponible\") %&gt;%\n  summarise(promedio = mean(rating, na.rm = TRUE)) %&gt;%\n  pull(promedio)\n\n## porcentaje de libros en digital\npct_ebook &lt;- libros %&gt;%\n  summarise(pct = mean(ebook == \"Sí\", na.rm = TRUE)*100) %&gt;%\n  pull(pct)"
+    "text": "Ahora ustedes\n\n\n\n\n\nAgregá tres value boxes indicando precio promedio, raiting promedio y porcentaje de libros que son ebook Usar los iconos “cash”,“star” y “phone” correspondientemente.\nCambia el theme del dashboard a uno de tu elección (por ej. minty) y agregá la imagen “images/logo.png” como logo desde YAML\n\n\n\n\n\n\n\nTip\n\n\nPodes copiar el cálculo de los value boxes de aquí\n\n\n\ndashboard-r.qmd\n\n#| label: calculo de elementos para value-boxes\n\n## precio promedio\nprecio_prom &lt;- libros %&gt;%\n  filter(stock == \"Disponible\") %&gt;%\n  summarise(promedio = mean(precio, na.rm = TRUE)) %&gt;%\n  pull(promedio)\n\n## puntaje promedio\nrating_prom &lt;- libros %&gt;%\n  filter(stock == \"Disponible\") %&gt;%\n  summarise(promedio = mean(rating, na.rm = TRUE)) %&gt;%\n  pull(promedio)\n\n## porcentaje de libros en digital\npct_ebook &lt;- libros %&gt;%\n  summarise(pct = mean(ebook == \"Sí\", na.rm = TRUE)*100) %&gt;%\n  pull(pct)"
   },
   {
     "objectID": "slides/index.html#cuando-termines-debería-quedar-algo-como-esto",
@@ -267,6 +267,16 @@
     "title": "Materiales",
     "section": "",
     "text": "Accedé a las diapositivas en pantalla completa.",
+    "crumbs": [
+      "Materiales"
+    ]
+  },
+  {
+    "objectID": "materiales.html#ejercicios",
+    "href": "materiales.html#ejercicios",
+    "title": "Materiales",
+    "section": "Ejercicios",
+    "text": "Ejercicios\nPodes descargar los ejercicios desde este enlace al zip",
     "crumbs": [
       "Materiales"
     ]
