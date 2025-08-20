@@ -10,7 +10,8 @@ project:
     timeout: 3600
 lang: es
 
-
+execute:
+  freeze: auto
 
 
 website:
