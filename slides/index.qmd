@@ -189,12 +189,12 @@ format: dashboard
 :::
 
 ::: {.column width="50%"}
-![](images/chart-focal-top.png)
+![](images/chart-focal-top.png){height="700"}
 :::
 
 :::
 
-## Paginado
+## Paginado {.smaller}
 
 Podemos agregar varias páginas a nuestro dashboard usando títulos del nivel 1 de Markdown.
 
@@ -255,7 +255,7 @@ format: dashboard
 :::
 
 ::: {.column width="50%"}
-![](images/chart-tabset-row.png)
+![](images/chart-tabset-row.png){height="700"}
 :::
 
 :::
@@ -530,7 +530,7 @@ plot_ly(
 
 y...🪄
 
-## Cuando termines deberias tener algo así
+## Cuando termines deberias tener algo así {.smaller}
 
 ![](images/first-dashboard-excercise-goal.gif)
 :::
