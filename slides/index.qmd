@@ -131,12 +131,12 @@ Virginia García Alonso
 :::
 :::
 
-## Navegación
+## Navegación {.smaller}
 
 Todos los tableros tienen una barra de navegación superior o \`nav-bar\` a la que le podemos agregar desde YAML diferentes elementos como **botones de navegación** (como links a linkedin, twitter) y **botones personalizados**
 
-![](images/navigation-toolbar.png)
-
+::: columns
+::: {.column width="50%"}
 ::: r-box
 ``` {.yaml filename="dashboard-r.qmd"}
 ---
@@ -149,6 +149,11 @@ format:
 ---
 ```
 :::
+:::
+::: {.column width="50%"}
+![](images/navigation-toolbar.png)
+:::
+:::
 
 ::: callout-tip
 ### Más data sobre navegación
@@ -157,11 +162,10 @@ Para aprendar más acreca del layout y controlar temas como la orientación, scr
 :::
 
 ## Trabajando la disposición {.smaller}
-
-Las filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:
-
 ::: columns
 ::: {.column width="50%"}
+Las filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:
+
 ::: r-box
 ````{.yaml filename="dashboard-r.qmd"}
 ---
@@ -181,11 +185,13 @@ format: dashboard
 ``` 
 ````
 :::
+
 :::
 
 ::: {.column width="50%"}
 ![](images/chart-focal-top.png)
 :::
+
 :::
 
 ## Paginado
@@ -219,12 +225,13 @@ format: dashboard
 ````
 :::
 
-## Tabset
+## Tabset {.smaller}
+::: columns
+
+::: {.column width="50%"}
 
 Otra opción muy linda es agregar solapas o tabsets indicando la clase .tabset a una columna o fila:
 
-::: columns
-::: {.column width="50%"}
 ::: r-box
 ````{.yaml filename="dashboard-r.qmd"}
 ---
@@ -244,11 +251,13 @@ format: dashboard
 ``` 
 ````
 :::
+
 :::
 
 ::: {.column width="50%"}
 ![](images/chart-tabset-row.png)
 :::
+
 :::
 
 ## Como dijo Gilda: pasito a pasito
@@ -266,7 +275,7 @@ format: dashboard
 ```
 :::
 
-## Paso 2: Cada chunck funciona como una tarjeta {auto-animate="true"}
+## Paso 2: Cada chunck funciona como una tarjeta {.smaller auto-animate="true"}
 
 Los distintos niveles de las seccioines en que se ordenen esas tarjetas también podemos irlas agregando usando \##
 
@@ -316,7 +325,7 @@ ggplot(mpg, aes(x = cty, y = hwy)) +
 :::
 :::
 
-## Paso 3: Sumamos otra tarjeta {auto-animate="true"}
+## Paso 3: Sumamos otra tarjeta {.smaller auto-animate="true"}
 
 ::: r-box
 ````{.yaml filename="dashboard-r.qmd" code-line-numbers="|15-18"}
@@ -374,7 +383,7 @@ ggplot(mpg, aes(x = drv)) +
 :::
 :::
 
-## Paso 4: A cada tarjeta podemos agregarle un título usando la opción `#|title:` {auto-animate="true"}
+## Paso 4: A cada tarjeta podemos agregarle un título usando la opción `#|title:` {.smaller auto-animate="true"}
 
 ::: r-box
 ````{.yaml filename="dashboard-r.qmd" code-line-numbers="|11,17"}
@@ -386,13 +395,11 @@ format: dashboard
 ```{{r}}
 library(ggplot2)
 ```
-
 ```{{r}}
 #| title: Highway vs. city mileage
 ggplot(mpg, aes(x = cty, y = hwy)) +
   geom_point()
 ```
-
 ```{{r}}
 #| title: Drive types
 ggplot(mpg, aes(x = drv)) +
@@ -415,13 +422,11 @@ format: dashboard
 ```{{r}}
 library(ggplot2)
 ```
-
 ```{{r}}
 #| title: Highway vs. city mileage
 ggplot(mpg, aes(x = cty, y = hwy)) +
   geom_point()
 ```
-
 ```{{r}}
 #| title: Drive types
 ggplot(mpg, aes(x = drv)) +
@@ -436,15 +441,18 @@ ggplot(mpg, aes(x = drv)) +
 :::
 :::
 
-## Ahora te toca a vos {.smaller}
+## Ahora te toca a vos 
 
-Vamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar [aquí]() y vamos a crear una serie de visualizaciones simples usando `plotly{}`:
+Vamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar desde la misma carpeta del ejercicio [aquí](https://betsycohen.github.io/quarto-dashboards-rladiesBA/exercises.zip) y vamos a crear una serie de visualizaciones simples usando `plotly{}`:
 
 1.  Una tabla con un ranking de libros
 2.  Un gráfico de barras con el raiting promedio por género
 3.  Un Boxplot de precio por género
 
-::: {.callout-tip collapse="true"}
+🛟(un ayudin en la diapo siguiente)🛟
+
+## Copiar y pegar las visualizaciones {.smaller}
+
 Para agilizar el trabajo los gráficos ya se encuentran listos aquí:
 
 ::: r-box
@@ -510,20 +518,19 @@ plot_ly(
 ```
 ````
 :::
-:::
-## Ahora te toca a vos
 
-::: columns
-::: {.column width="40%"}
+## ¡Manos a la obra!
+
+
 -   Crea un proyecto Quarto setendo el formato como dashboard
 -   Indica un título en YAML
 -   En un primer chunck de setup llamá a las librerías `tidyverse`, `dt` y `plotly` y carga los datos de libros.
 -   A cada tarjeta asignales títulos usando la opción `#| title:`
 -   Setea las dos últimas tarjetas como tabs usando `{.tabset}` en la definición del nivel de la fila.
-:::
 
-::: {.column width="60%"}
-### Cuando termines deberias tener algo así
+y...🪄
+
+## Cuando termines deberias tener algo así
 
 ![](images/first-dashboard-excercise-goal.gif)
 :::
@@ -537,7 +544,7 @@ plot_ly(
 -   Podes crear value boxes en alguna celda especifica o como divs en el markdown
 -   Las value boxes usan íconos de Bootstrap y les podemos setaar color (por ej con códigos HEX) o si usaste un alias de color como parte de tu scss (no llegamos a ver este tema en esta presenta 😞)
 
-## Paso 1: definimos los valores
+## Paso 1: definimos los valores {.smaller}
 
 ::: r-box
 ````{.yaml filename="dashboard-r.qmd"}
@@ -570,7 +577,7 @@ rounded_mean_city_mileage <- mpg |>
 ````
 :::
 
-## Paso 2: hacemos los value en cuestion
+## Paso 2: hacemos los value en cuestion {.smaller}
 
 Usamos las opciones:
 
@@ -668,7 +675,7 @@ pct_ebook <- libros %>%
 
 -   Además algunos autores han agregado otros paquetes compatibles como `SummaryWidget()` de Kent Johnson o `kpiwidget()` de Arnold Kakas (que vamos a ver en seguida).
 
-## Filtros en crosstalk
+## Filtros en crosstalk {.smaller}
 
 Crosstalk también admite el uso de filtros (parecidos a los que tenemos en shiny), pero con la ventaja de que estamos trabajando con un html estático.
 
