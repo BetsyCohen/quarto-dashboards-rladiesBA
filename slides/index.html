@@ -327,11 +327,12 @@ Betsy Cohen<br>RLadies Buenos Aires
 </div>
 </div>
 </section>
-<section id="navegación" class="slide level2">
+<section id="navegación" class="slide level2 smaller">
 <h2>Navegación</h2>
 <p>Todos los tableros tienen una barra de navegación superior o `nav-bar` a la que le podemos agregar desde YAML diferentes elementos como <strong>botones de navegación</strong> (como links a linkedin, twitter) y <strong>botones personalizados</strong></p>
-
-<img data-src="images/navigation-toolbar.png" class="r-stretch"><div class="r-box">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="r-box">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>dashboard-r.qmd</strong></pre>
@@ -346,6 +347,9 @@ Betsy Cohen<br>RLadies Buenos Aires
 <span id="cb1-8"><a></a><span class="pp">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/navigation-toolbar.png"></p>
+</div></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -362,9 +366,9 @@ Betsy Cohen<br>RLadies Buenos Aires
 </section>
 <section id="trabajando-la-disposición" class="slide level2 smaller">
 <h2>Trabajando la disposición</h2>
-<p>Las filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:</p>
 <div class="columns">
 <div class="column" style="width:50%;">
+<p>Las filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:</p>
 <div class="r-box">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -424,11 +428,11 @@ Betsy Cohen<br>RLadies Buenos Aires
 </div>
 </div>
 </section>
-<section id="tabset" class="slide level2">
+<section id="tabset" class="slide level2 smaller">
 <h2>Tabset</h2>
-<p>Otra opción muy linda es agregar solapas o tabsets indicando la clase .tabset a una columna o fila:</p>
 <div class="columns">
 <div class="column" style="width:50%;">
+<p>Otra opción muy linda es agregar solapas o tabsets indicando la clase .tabset a una columna o fila:</p>
 <div class="r-box">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -473,7 +477,7 @@ Betsy Cohen<br>RLadies Buenos Aires
 </div>
 </div>
 </section>
-<section id="paso-2-cada-chunck-funciona-como-una-tarjeta" class="slide level2" data-auto-animate="true">
+<section id="paso-2-cada-chunck-funciona-como-una-tarjeta" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Paso 2: Cada chunck funciona como una tarjeta</h2>
 <p>Los distintos niveles de las seccioines en que se ordenen esas tarjetas también podemos irlas agregando usando ##</p>
 <div class="r-box">
@@ -525,7 +529,7 @@ Betsy Cohen<br>RLadies Buenos Aires
 <p><img data-src="images/first-dashboard-r-1.png"></p>
 </div></div>
 </section>
-<section id="paso-3-sumamos-otra-tarjeta" class="slide level2" data-auto-animate="true">
+<section id="paso-3-sumamos-otra-tarjeta" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Paso 3: Sumamos otra tarjeta</h2>
 <div class="r-box">
 <div class="code-with-filename">
@@ -586,7 +590,7 @@ Betsy Cohen<br>RLadies Buenos Aires
 <p><img data-src="images/first-dashboard-r-2.png"></p>
 </div></div>
 </section>
-<section id="paso-4-a-cada-tarjeta-podemos-agregarle-un-título-usando-la-opción-title" class="slide level2" data-auto-animate="true">
+<section id="paso-4-a-cada-tarjeta-podemos-agregarle-un-título-usando-la-opción-title" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Paso 4: A cada tarjeta podemos agregarle un título usando la opción <code>#|title:</code></h2>
 <div class="r-box">
 <div class="code-with-filename">
@@ -601,18 +605,16 @@ Betsy Cohen<br>RLadies Buenos Aires
 <span id="cb10-6" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
 <span id="cb10-7" class="hljs-ln-code"><a></a><span class="at">library(ggplot2)</span></span>
 <span id="cb10-8" class="hljs-ln-code"><a></a><span class="at">```</span></span>
-<span id="cb10-9" class="hljs-ln-code"><a></a></span>
-<span id="cb10-10" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
-<span id="cb10-11" class="hljs-ln-code"><a></a><span class="co">#| title: Highway vs. city mileage</span></span>
-<span id="cb10-12" class="hljs-ln-code"><a></a><span class="at">ggplot(mpg, aes(x = cty, y = hwy)) +</span></span>
-<span id="cb10-13" class="hljs-ln-code"><a></a><span class="at">  geom_point()</span></span>
-<span id="cb10-14" class="hljs-ln-code"><a></a><span class="at">```</span></span>
-<span id="cb10-15" class="hljs-ln-code"><a></a></span>
-<span id="cb10-16" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
-<span id="cb10-17" class="hljs-ln-code"><a></a><span class="co">#| title: Drive types</span></span>
-<span id="cb10-18" class="hljs-ln-code"><a></a><span class="at">ggplot(mpg, aes(x = drv)) +</span></span>
-<span id="cb10-19" class="hljs-ln-code"><a></a><span class="at">  geom_bar()</span></span>
-<span id="cb10-20" class="hljs-ln-code"><a></a><span class="at">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-9" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
+<span id="cb10-10" class="hljs-ln-code"><a></a><span class="co">#| title: Highway vs. city mileage</span></span>
+<span id="cb10-11" class="hljs-ln-code"><a></a><span class="at">ggplot(mpg, aes(x = cty, y = hwy)) +</span></span>
+<span id="cb10-12" class="hljs-ln-code"><a></a><span class="at">  geom_point()</span></span>
+<span id="cb10-13" class="hljs-ln-code"><a></a><span class="at">```</span></span>
+<span id="cb10-14" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
+<span id="cb10-15" class="hljs-ln-code"><a></a><span class="co">#| title: Drive types</span></span>
+<span id="cb10-16" class="hljs-ln-code"><a></a><span class="at">ggplot(mpg, aes(x = drv)) +</span></span>
+<span id="cb10-17" class="hljs-ln-code"><a></a><span class="at">  geom_bar()</span></span>
+<span id="cb10-18" class="hljs-ln-code"><a></a><span class="at">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -633,41 +635,34 @@ Betsy Cohen<br>RLadies Buenos Aires
 <span id="cb11-6" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
 <span id="cb11-7" class="hljs-ln-code"><a></a><span class="at">library(ggplot2)</span></span>
 <span id="cb11-8" class="hljs-ln-code"><a></a><span class="at">```</span></span>
-<span id="cb11-9" class="hljs-ln-code"><a></a></span>
-<span id="cb11-10" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
-<span id="cb11-11" class="hljs-ln-code"><a></a><span class="co">#| title: Highway vs. city mileage</span></span>
-<span id="cb11-12" class="hljs-ln-code"><a></a><span class="at">ggplot(mpg, aes(x = cty, y = hwy)) +</span></span>
-<span id="cb11-13" class="hljs-ln-code"><a></a><span class="at">  geom_point()</span></span>
-<span id="cb11-14" class="hljs-ln-code"><a></a><span class="at">```</span></span>
-<span id="cb11-15" class="hljs-ln-code"><a></a></span>
-<span id="cb11-16" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
-<span id="cb11-17" class="hljs-ln-code"><a></a><span class="co">#| title: Drive types</span></span>
-<span id="cb11-18" class="hljs-ln-code"><a></a><span class="at">ggplot(mpg, aes(x = drv)) +</span></span>
-<span id="cb11-19" class="hljs-ln-code"><a></a><span class="at">  geom_bar()</span></span>
-<span id="cb11-20" class="hljs-ln-code"><a></a><span class="at">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-9" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
+<span id="cb11-10" class="hljs-ln-code"><a></a><span class="co">#| title: Highway vs. city mileage</span></span>
+<span id="cb11-11" class="hljs-ln-code"><a></a><span class="at">ggplot(mpg, aes(x = cty, y = hwy)) +</span></span>
+<span id="cb11-12" class="hljs-ln-code"><a></a><span class="at">  geom_point()</span></span>
+<span id="cb11-13" class="hljs-ln-code"><a></a><span class="at">```</span></span>
+<span id="cb11-14" class="hljs-ln-code"><a></a><span class="at">```{r}</span></span>
+<span id="cb11-15" class="hljs-ln-code"><a></a><span class="co">#| title: Drive types</span></span>
+<span id="cb11-16" class="hljs-ln-code"><a></a><span class="at">ggplot(mpg, aes(x = drv)) +</span></span>
+<span id="cb11-17" class="hljs-ln-code"><a></a><span class="at">  geom_bar()</span></span>
+<span id="cb11-18" class="hljs-ln-code"><a></a><span class="at">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div><div class="column" style="width:60%;">
 <p><img data-src="images/first-dashboard-r-3.png"></p>
 </div></div>
 </section>
-<section id="ahora-te-toca-a-vos" class="slide level2 smaller">
+<section id="ahora-te-toca-a-vos" class="slide level2">
 <h2>Ahora te toca a vos</h2>
-<p>Vamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar <a href="">aquí</a> y vamos a crear una serie de visualizaciones simples usando <code>plotly{}</code>:</p>
+<p>Vamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar desde la misma carpeta del ejercicio <a href="https://betsycohen.github.io/quarto-dashboards-rladiesBA/exercises.zip">aquí</a> y vamos a crear una serie de visualizaciones simples usando <code>plotly{}</code>:</p>
 <ol type="1">
 <li>Una tabla con un ranking de libros</li>
 <li>Un gráfico de barras con el raiting promedio por género</li>
 <li>Un Boxplot de precio por género</li>
 </ol>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
+<p>🛟(un ayudin en la diapo siguiente)🛟</p>
+</section>
+<section id="copiar-y-pegar-las-visualizaciones" class="slide level2 smaller">
+<h2>Copiar y pegar las visualizaciones</h2>
 <p>Para agilizar el trabajo los gráficos ya se encuentran listos aquí:</p>
 <div class="r-box">
 <div class="code-with-filename">
@@ -735,14 +730,9 @@ Betsy Cohen<br>RLadies Buenos Aires
 <span id="cb12-59"><a></a><span class="at">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</div>
-</div>
-</div>
 </section>
-<section id="ahora-te-toca-a-vos-1" class="slide level2">
-<h2>Ahora te toca a vos</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
+<section id="manos-a-la-obra" class="slide level2">
+<h2>¡Manos a la obra!</h2>
 <ul>
 <li>Crea un proyecto Quarto setendo el formato como dashboard</li>
 <li>Indica un título en YAML</li>
@@ -750,10 +740,11 @@ Betsy Cohen<br>RLadies Buenos Aires
 <li>A cada tarjeta asignales títulos usando la opción <code>#| title:</code></li>
 <li>Setea las dos últimas tarjetas como tabs usando <code>{.tabset}</code> en la definición del nivel de la fila.</li>
 </ul>
-</div><div class="column" style="width:60%;">
-<h3 id="cuando-termines-deberias-tener-algo-así">Cuando termines deberias tener algo así</h3>
-<p><img data-src="images/first-dashboard-excercise-goal.gif"></p>
-</div></div>
+<p>y…🪄</p>
+</section>
+<section id="cuando-termines-deberias-tener-algo-así" class="slide level2">
+<h2>Cuando termines deberias tener algo así</h2>
+<p><img data-src="images/first-dashboard-excercise-goal.gif"> ::: :::</p>
 </section></section>
 <section>
 <section id="más-objetos-máaaaaaaaaas" class="title-slide slide level1 center">
@@ -768,7 +759,7 @@ Betsy Cohen<br>RLadies Buenos Aires
 <li>Las value boxes usan íconos de Bootstrap y les podemos setaar color (por ej con códigos HEX) o si usaste un alias de color como parte de tu scss (no llegamos a ver este tema en esta presenta 😞)</li>
 </ul>
 </section>
-<section id="paso-1-definimos-los-valores" class="slide level2">
+<section id="paso-1-definimos-los-valores" class="slide level2 smaller">
 <h2>Paso 1: definimos los valores</h2>
 <div class="r-box">
 <div class="code-with-filename">
@@ -804,7 +795,7 @@ Betsy Cohen<br>RLadies Buenos Aires
 </div>
 </div>
 </section>
-<section id="paso-2-hacemos-los-value-en-cuestion" class="slide level2">
+<section id="paso-2-hacemos-los-value-en-cuestion" class="slide level2 smaller">
 <h2>Paso 2: hacemos los value en cuestion</h2>
 <p>Usamos las opciones:</p>
 <p><code>#| content: valuebox</code></p>
@@ -914,7 +905,7 @@ Betsy Cohen<br>RLadies Buenos Aires
 <li><p>Además algunos autores han agregado otros paquetes compatibles como <code>SummaryWidget()</code> de Kent Johnson o <code>kpiwidget()</code> de Arnold Kakas (que vamos a ver en seguida).</p></li>
 </ul>
 </section>
-<section id="filtros-en-crosstalk" class="slide level2">
+<section id="filtros-en-crosstalk" class="slide level2 smaller">
 <h2>Filtros en crosstalk</h2>
 <p>Crosstalk también admite el uso de filtros (parecidos a los que tenemos en shiny), pero con la ventaja de que estamos trabajando con un html estático.</p>
 <div class="cell">
@@ -949,7 +940,7 @@ Betsy Cohen<br>RLadies Buenos Aires
 </div>
 
 </section>
-<section id="filtros-en-crosstalk-output" class="slide level2 output-location-slide"><h2>Filtros en crosstalk</h2><div class="cell output-location-slide">
+<section id="filtros-en-crosstalk-output" class="slide level2 smaller output-location-slide"><h2>Filtros en crosstalk</h2><div class="cell output-location-slide">
 <div class="cell-output-display no-overflow-x">
 <div class="container-fluid crosstalk-bscols">
 <div class="row">
@@ -976,7 +967,7 @@ Betsy Cohen<br>RLadies Buenos Aires
     "6": ["Mazda RX4", "Mazda RX4 Wag", "Hornet 4 Drive", "Valiant", "Merc 280", "Merc 280C", "Ferrari Dino"],
     "8": ["Hornet Sportabout", "Duster 360", "Merc 450SE", "Merc 450SL", "Merc 450SLC", "Cadillac Fleetwood", "Lincoln Continental", "Chrysler Imperial", "Dodge Challenger", "AMC Javelin", "Camaro Z28", "Pontiac Firebird", "Ford Pantera L", "Maserati Bora"]
   },
-  "group": ["SharedDataf45c74d0"]
+  "group": ["SharedData5ee8d70a"]
 }</script>
 </div>
 <div class="form-group crosstalk-input crosstalk-input-slider js-range-slider" id="hp" style="width: 100%;">
@@ -985,7 +976,7 @@ Betsy Cohen<br>RLadies Buenos Aires
 <script type="application/json" data-for="hp">{
   "values": [52, 62, 65, 66, 66, 91, 93, 95, 97, 105, 109, 110, 110, 110, 113, 123, 123, 150, 150, 175, 175, 175, 180, 180, 180, 205, 215, 230, 245, 245, 264, 335],
   "keys": ["Honda Civic", "Merc 240D", "Toyota Corolla", "Fiat 128", "Fiat X1-9", "Porsche 914-2", "Datsun 710", "Merc 230", "Toyota Corona", "Valiant", "Volvo 142E", "Mazda RX4", "Mazda RX4 Wag", "Hornet 4 Drive", "Lotus Europa", "Merc 280", "Merc 280C", "Dodge Challenger", "AMC Javelin", "Hornet Sportabout", "Pontiac Firebird", "Ferrari Dino", "Merc 450SE", "Merc 450SL", "Merc 450SLC", "Cadillac Fleetwood", "Lincoln Continental", "Chrysler Imperial", "Duster 360", "Camaro Z28", "Ford Pantera L", "Maserati Bora"],
-  "group": ["SharedDataf45c74d0"]
+  "group": ["SharedData5ee8d70a"]
 }</script>
 </div>
 <div id="auto" class="form-group crosstalk-input-select crosstalk-input">
@@ -1001,18 +992,18 @@ Betsy Cohen<br>RLadies Buenos Aires
     "No": ["Mazda RX4", "Mazda RX4 Wag", "Datsun 710", "Fiat 128", "Honda Civic", "Toyota Corolla", "Fiat X1-9", "Porsche 914-2", "Lotus Europa", "Ford Pantera L", "Ferrari Dino", "Maserati Bora", "Volvo 142E"],
     "Yes": ["Hornet 4 Drive", "Hornet Sportabout", "Valiant", "Duster 360", "Merc 240D", "Merc 230", "Merc 280", "Merc 280C", "Merc 450SE", "Merc 450SL", "Merc 450SLC", "Cadillac Fleetwood", "Lincoln Continental", "Chrysler Imperial", "Toyota Corona", "Dodge Challenger", "AMC Javelin", "Camaro Z28", "Pontiac Firebird"]
   },
-  "group": ["SharedDataf45c74d0"]
+  "group": ["SharedData5ee8d70a"]
 }</script>
 </div>
 </div>
 </div>
 <div class="col-xs-4">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-dda0391d82d4482f4e8e" style="width:100%;height:400px;"></div>
-<script type="application/json" data-for="htmlwidget-dda0391d82d4482f4e8e">{"x":{"visdat":{"5da0184372d2":["function () ","plotlyVisDat"]},"cur_data":"5da0184372d2","attrs":{"5da0184372d2":{"x":{},"y":{},"mode":"markers","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Peso"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Millas por galón"},"dragmode":"zoom","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2.3199999999999998,3.1899999999999999,3.1499999999999999,2.2000000000000002,1.615,1.835,2.4649999999999999,1.9350000000000001,2.1400000000000001,1.5129999999999999,2.7799999999999998],"y":[22.800000000000001,24.399999999999999,22.800000000000001,32.399999999999999,30.399999999999999,33.899999999999999,21.5,27.300000000000001,26,30.399999999999999,21.399999999999999],"mode":"markers","type":"scatter","key":["Datsun 710","Merc 240D","Merc 230","Fiat 128","Honda Civic","Toyota Corolla","Toyota Corona","Fiat X1-9","Porsche 914-2","Lotus Europa","Volvo 142E"],"set":"SharedDataf45c74d0","name":"4","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":[2.6200000000000001,2.875,3.2149999999999999,3.46,3.4399999999999999,3.4399999999999999,2.77],"y":[21,21,21.399999999999999,18.100000000000001,19.199999999999999,17.800000000000001,19.699999999999999],"mode":"markers","type":"scatter","key":["Mazda RX4","Mazda RX4 Wag","Hornet 4 Drive","Valiant","Merc 280","Merc 280C","Ferrari Dino"],"set":"SharedDataf45c74d0","name":"6","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":[3.4399999999999999,3.5699999999999998,4.0700000000000003,3.73,3.7799999999999998,5.25,5.4240000000000004,5.3449999999999998,3.52,3.4350000000000001,3.8399999999999999,3.8450000000000002,3.1699999999999999,3.5699999999999998],"y":[18.699999999999999,14.300000000000001,16.399999999999999,17.300000000000001,15.199999999999999,10.4,10.4,14.699999999999999,15.5,15.199999999999999,13.300000000000001,19.199999999999999,15.800000000000001,15],"mode":"markers","type":"scatter","key":["Hornet Sportabout","Duster 360","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood","Lincoln Continental","Chrysler Imperial","Dodge Challenger","AMC Javelin","Camaro Z28","Pontiac Firebird","Ford Pantera L","Maserati Bora"],"set":"SharedDataf45c74d0","name":"8","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedDataf45c74d0"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-8758cd55d66f947cb2b8" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-8758cd55d66f947cb2b8">{"x":{"visdat":{"74b428a961ec":["function () ","plotlyVisDat"]},"cur_data":"74b428a961ec","attrs":{"74b428a961ec":{"x":{},"y":{},"mode":"markers","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Peso"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Millas por galón"},"dragmode":"zoom","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2.3199999999999998,3.1899999999999999,3.1499999999999999,2.2000000000000002,1.615,1.835,2.4649999999999999,1.9350000000000001,2.1400000000000001,1.5129999999999999,2.7799999999999998],"y":[22.800000000000001,24.399999999999999,22.800000000000001,32.399999999999999,30.399999999999999,33.899999999999999,21.5,27.300000000000001,26,30.399999999999999,21.399999999999999],"mode":"markers","type":"scatter","key":["Datsun 710","Merc 240D","Merc 230","Fiat 128","Honda Civic","Toyota Corolla","Toyota Corona","Fiat X1-9","Porsche 914-2","Lotus Europa","Volvo 142E"],"set":"SharedData5ee8d70a","name":"4","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":[2.6200000000000001,2.875,3.2149999999999999,3.46,3.4399999999999999,3.4399999999999999,2.77],"y":[21,21,21.399999999999999,18.100000000000001,19.199999999999999,17.800000000000001,19.699999999999999],"mode":"markers","type":"scatter","key":["Mazda RX4","Mazda RX4 Wag","Hornet 4 Drive","Valiant","Merc 280","Merc 280C","Ferrari Dino"],"set":"SharedData5ee8d70a","name":"6","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":[3.4399999999999999,3.5699999999999998,4.0700000000000003,3.73,3.7799999999999998,5.25,5.4240000000000004,5.3449999999999998,3.52,3.4350000000000001,3.8399999999999999,3.8450000000000002,3.1699999999999999,3.5699999999999998],"y":[18.699999999999999,14.300000000000001,16.399999999999999,17.300000000000001,15.199999999999999,10.4,10.4,14.699999999999999,15.5,15.199999999999999,13.300000000000001,19.199999999999999,15.800000000000001,15],"mode":"markers","type":"scatter","key":["Hornet Sportabout","Duster 360","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood","Lincoln Continental","Chrysler Imperial","Dodge Challenger","AMC Javelin","Camaro Z28","Pontiac Firebird","Ford Pantera L","Maserati Bora"],"set":"SharedData5ee8d70a","name":"8","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedData5ee8d70a"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="col-xs-4">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-3be5fcf3434c39031492" style="width:100%;height:400px;"></div>
-<script type="application/json" data-for="htmlwidget-3be5fcf3434c39031492">{"x":{"visdat":{"5da06e25407":["function () ","plotlyVisDat"]},"cur_data":"5da06e25407","attrs":{"5da06e25407":{"x":{},"y":{},"mode":"markers","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Caballos"},"yaxis":{"domain":[0,1],"automargin":true,"title":"1/4 milla"},"dragmode":"zoom","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[93,62,95,66,52,65,97,66,91,113,109],"y":[18.609999999999999,20,22.899999999999999,19.469999999999999,18.52,19.899999999999999,20.010000000000002,18.899999999999999,16.699999999999999,16.899999999999999,18.600000000000001],"mode":"markers","type":"scatter","key":["Datsun 710","Merc 240D","Merc 230","Fiat 128","Honda Civic","Toyota Corolla","Toyota Corona","Fiat X1-9","Porsche 914-2","Lotus Europa","Volvo 142E"],"set":"SharedDataf45c74d0","name":"4","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":[110,110,110,105,123,123,175],"y":[16.460000000000001,17.02,19.440000000000001,20.219999999999999,18.300000000000001,18.899999999999999,15.5],"mode":"markers","type":"scatter","key":["Mazda RX4","Mazda RX4 Wag","Hornet 4 Drive","Valiant","Merc 280","Merc 280C","Ferrari Dino"],"set":"SharedDataf45c74d0","name":"6","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":[175,245,180,180,180,205,215,230,150,150,245,175,264,335],"y":[17.02,15.84,17.399999999999999,17.600000000000001,18,17.98,17.82,17.420000000000002,16.870000000000001,17.300000000000001,15.41,17.050000000000001,14.5,14.6],"mode":"markers","type":"scatter","key":["Hornet Sportabout","Duster 360","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood","Lincoln Continental","Chrysler Imperial","Dodge Challenger","AMC Javelin","Camaro Z28","Pontiac Firebird","Ford Pantera L","Maserati Bora"],"set":"SharedDataf45c74d0","name":"8","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedDataf45c74d0"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-1dde869ee45363b46b5b" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-1dde869ee45363b46b5b">{"x":{"visdat":{"74b4724310b3":["function () ","plotlyVisDat"]},"cur_data":"74b4724310b3","attrs":{"74b4724310b3":{"x":{},"y":{},"mode":"markers","color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Caballos"},"yaxis":{"domain":[0,1],"automargin":true,"title":"1/4 milla"},"dragmode":"zoom","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[93,62,95,66,52,65,97,66,91,113,109],"y":[18.609999999999999,20,22.899999999999999,19.469999999999999,18.52,19.899999999999999,20.010000000000002,18.899999999999999,16.699999999999999,16.899999999999999,18.600000000000001],"mode":"markers","type":"scatter","key":["Datsun 710","Merc 240D","Merc 230","Fiat 128","Honda Civic","Toyota Corolla","Toyota Corona","Fiat X1-9","Porsche 914-2","Lotus Europa","Volvo 142E"],"set":"SharedData5ee8d70a","name":"4","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":[110,110,110,105,123,123,175],"y":[16.460000000000001,17.02,19.440000000000001,20.219999999999999,18.300000000000001,18.899999999999999,15.5],"mode":"markers","type":"scatter","key":["Mazda RX4","Mazda RX4 Wag","Hornet 4 Drive","Valiant","Merc 280","Merc 280C","Ferrari Dino"],"set":"SharedData5ee8d70a","name":"6","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":[175,245,180,180,180,205,215,230,150,150,245,175,264,335],"y":[17.02,15.84,17.399999999999999,17.600000000000001,18,17.98,17.82,17.420000000000002,16.870000000000001,17.300000000000001,15.41,17.050000000000001,14.5,14.6],"mode":"markers","type":"scatter","key":["Hornet Sportabout","Duster 360","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood","Lincoln Continental","Chrysler Imperial","Dodge Challenger","AMC Javelin","Camaro Z28","Pontiac Firebird","Ford Pantera L","Maserati Bora"],"set":"SharedData5ee8d70a","name":"8","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedData5ee8d70a"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>

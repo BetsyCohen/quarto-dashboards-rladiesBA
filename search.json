@@ -60,14 +60,14 @@
     "href": "slides/index.html#navegación",
     "title": "Armá un Dashboard con R y Quarto",
     "section": "Navegación",
-    "text": "Navegación\nTodos los tableros tienen una barra de navegación superior o `nav-bar` a la que le podemos agregar desde YAML diferentes elementos como botones de navegación (como links a linkedin, twitter) y botones personalizados\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat:\n  dashboard:\n    logo: images/rladies-hex.png\n    nav-buttons: [linkedin,twitter,github]\n---\n\n\n\n\n\n\n\n\nMás data sobre navegación\n\n\nPara aprendar más acreca del layout y controlar temas como la orientación, scrolleo, etc. consulta esta sección de la docu"
+    "text": "Navegación\nTodos los tableros tienen una barra de navegación superior o `nav-bar` a la que le podemos agregar desde YAML diferentes elementos como botones de navegación (como links a linkedin, twitter) y botones personalizados\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat:\n  dashboard:\n    logo: images/rladies-hex.png\n    nav-buttons: [linkedin,twitter,github]\n---\n\n\n\n\n\n\n\n\n\n\n\nMás data sobre navegación\n\n\nPara aprendar más acreca del layout y controlar temas como la orientación, scrolleo, etc. consulta esta sección de la docu"
   },
   {
     "objectID": "slides/index.html#trabajando-la-disposición",
     "href": "slides/index.html#trabajando-la-disposición",
     "title": "Armá un Dashboard con R y Quarto",
     "section": "Trabajando la disposición",
-    "text": "Trabajando la disposición\nLas filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat: dashboard\n---\n\n## Row {height=70%}\n\n```{r}\n``` \n## Row {height=30%}\n```{r}\n``` \n```{r}\n```"
+    "text": "Trabajando la disposición\n\n\nLas filas y columnas se definen, a su vez, mediante encabezados de Markdown y chuncks. Por ejemplo, aquí se muestra un diseño simple con dos filas, donde la segunda fila se divide en dos columnas:\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat: dashboard\n---\n\n## Row {height=70%}\n\n```{r}\n``` \n## Row {height=30%}\n```{r}\n``` \n```{r}\n```"
   },
   {
     "objectID": "slides/index.html#paginado",
@@ -81,7 +81,7 @@
     "href": "slides/index.html#tabset",
     "title": "Armá un Dashboard con R y Quarto",
     "section": "Tabset",
-    "text": "Tabset\nOtra opción muy linda es agregar solapas o tabsets indicando la clase .tabset a una columna o fila:\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat: dashboard\n---\n\n## Row \n\n```{r}\n``` \n## Row {.tabset}\n```{r}\n``` \n```{r}\n```"
+    "text": "Tabset\n\n\nOtra opción muy linda es agregar solapas o tabsets indicando la clase .tabset a una columna o fila:\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nauthor: \"Rladies BA\"\nformat: dashboard\n---\n\n## Row \n\n```{r}\n``` \n## Row {.tabset}\n```{r}\n``` \n```{r}\n```"
   },
   {
     "objectID": "slides/index.html#como-dijo-gilda-pasito-a-pasito",
@@ -130,28 +130,42 @@
     "href": "slides/index.html#paso-4-a-cada-tarjeta-podemos-agregarle-un-título-usando-la-opción-title",
     "title": "Armá un Dashboard con R y Quarto",
     "section": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:",
-    "text": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n\n```{r}\n#| title: Highway vs. city mileage\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```\n\n```{r}\n#| title: Drive types\nggplot(mpg, aes(x = drv)) +\n  geom_bar()\n```"
+    "text": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n```{r}\n#| title: Highway vs. city mileage\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```\n```{r}\n#| title: Drive types\nggplot(mpg, aes(x = drv)) +\n  geom_bar()\n```"
   },
   {
     "objectID": "slides/index.html#paso-4-a-cada-tarjeta-podemos-agregarle-un-título-usando-la-opción-title-1",
     "href": "slides/index.html#paso-4-a-cada-tarjeta-podemos-agregarle-un-título-usando-la-opción-title-1",
     "title": "Armá un Dashboard con R y Quarto",
     "section": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:",
-    "text": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n\n```{r}\n#| title: Highway vs. city mileage\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```\n\n```{r}\n#| title: Drive types\nggplot(mpg, aes(x = drv)) +\n  geom_bar()\n```"
+    "text": "Paso 4: A cada tarjeta podemos agregarle un título usando la opción #|title:\n\n\n\n\n\ndashboard-r.qmd\n\n---\ntitle: \"Mi primer tablero en quarto\"\nformat: dashboard\n---\n\n```{r}\nlibrary(ggplot2)\n```\n```{r}\n#| title: Highway vs. city mileage\nggplot(mpg, aes(x = cty, y = hwy)) +\n  geom_point()\n```\n```{r}\n#| title: Drive types\nggplot(mpg, aes(x = drv)) +\n  geom_bar()\n```"
   },
   {
     "objectID": "slides/index.html#ahora-te-toca-a-vos",
     "href": "slides/index.html#ahora-te-toca-a-vos",
     "title": "Armá un Dashboard con R y Quarto",
     "section": "Ahora te toca a vos",
-    "text": "Ahora te toca a vos\nVamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar aquí y vamos a crear una serie de visualizaciones simples usando plotly{}:\n\nUna tabla con un ranking de libros\nUn gráfico de barras con el raiting promedio por género\nUn Boxplot de precio por género\n\n\n\n\n\n\n\nTip\n\n\nPara agilizar el trabajo los gráficos ya se encuentran listos aquí:\n\n\n\ndashboard-r.qmd\n\n\n```{r}\n# Tabla en DT con libros\n\ndatatable(\n  libros,\n  options = list(\n    pageLength = 10,\n    order = list(list(0, 'asc')), # ordenamos la tabla por ranking\n    dom = 'ftp',                  # solo filtro arriba (f), tabla (t) y paginación (p)\n    language = list(\n      searchPlaceholder = \"Buscar...\",\n      search = \"\" # saca el texto de 'Search:'\n    )\n  ),\n  class = 'table table-striped table-hover table-sm', # usamos Bootstrap \n  filter = \"none\",   # sin filtros en columnas\n  rownames = FALSE,\n  colnames = c(\"Puesto\",\"Título\",\"Autoría\",\"$AR\",\"Stock\",\"Puntaje\",\"Género\",\"Pág.\",\"Ebook\")\n)\n\n```\n\n```{r}\n# Grafico 1 barplot raiting promedio por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~rating,\n  type = \"bar\",\n  transforms = list(list(\n    type = \"aggregate\",\n    groups = ~genero,\n    aggregations = list(\n      list(target = \"y\", func = \"avg\", enabled = TRUE)\n    )\n  )),\n  marker = list(color = colores),\n  showlegend = FALSE\n)\n```\n\n```{r}\n# Gráfico 2 boxplot de precios por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~precio,\n  color = ~genero,\n  colors = colores,\n  type  = \"box\",\n  boxpoints = \"outliers\",\n  showlegend = FALSE\n) %&gt;%\n  layout(\n    xaxis = list(title = \"\"),\n    yaxis = list(title = \"Precio $AR\")\n  )\n```"
+    "text": "Ahora te toca a vos\nVamos a trabajar con un ranking de los libros más vendidos que levantamos de una conocida cadena de librerías en buenos aires que empieza con C y terminda con uspide y que podes descargar desde la misma carpeta del ejercicio aquí y vamos a crear una serie de visualizaciones simples usando plotly{}:\n\nUna tabla con un ranking de libros\nUn gráfico de barras con el raiting promedio por género\nUn Boxplot de precio por género\n\n🛟(un ayudin en la diapo siguiente)🛟"
   },
   {
-    "objectID": "slides/index.html#ahora-te-toca-a-vos-1",
-    "href": "slides/index.html#ahora-te-toca-a-vos-1",
+    "objectID": "slides/index.html#copiar-y-pegar-las-visualizaciones",
+    "href": "slides/index.html#copiar-y-pegar-las-visualizaciones",
     "title": "Armá un Dashboard con R y Quarto",
-    "section": "Ahora te toca a vos",
-    "text": "Ahora te toca a vos\n\n\n\nCrea un proyecto Quarto setendo el formato como dashboard\nIndica un título en YAML\nEn un primer chunck de setup llamá a las librerías tidyverse, dt y plotly y carga los datos de libros.\nA cada tarjeta asignales títulos usando la opción #| title:\nSetea las dos últimas tarjetas como tabs usando {.tabset} en la definición del nivel de la fila.\n\n\nCuando termines deberias tener algo así"
+    "section": "Copiar y pegar las visualizaciones",
+    "text": "Copiar y pegar las visualizaciones\nPara agilizar el trabajo los gráficos ya se encuentran listos aquí:\n\n\n\ndashboard-r.qmd\n\n\n```{r}\n# Tabla en DT con libros\n\ndatatable(\n  libros,\n  options = list(\n    pageLength = 10,\n    order = list(list(0, 'asc')), # ordenamos la tabla por ranking\n    dom = 'ftp',                  # solo filtro arriba (f), tabla (t) y paginación (p)\n    language = list(\n      searchPlaceholder = \"Buscar...\",\n      search = \"\" # saca el texto de 'Search:'\n    )\n  ),\n  class = 'table table-striped table-hover table-sm', # usamos Bootstrap \n  filter = \"none\",   # sin filtros en columnas\n  rownames = FALSE,\n  colnames = c(\"Puesto\",\"Título\",\"Autoría\",\"$AR\",\"Stock\",\"Puntaje\",\"Género\",\"Pág.\",\"Ebook\")\n)\n\n```\n\n```{r}\n# Grafico 1 barplot raiting promedio por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~rating,\n  type = \"bar\",\n  transforms = list(list(\n    type = \"aggregate\",\n    groups = ~genero,\n    aggregations = list(\n      list(target = \"y\", func = \"avg\", enabled = TRUE)\n    )\n  )),\n  marker = list(color = colores),\n  showlegend = FALSE\n)\n```\n\n```{r}\n# Gráfico 2 boxplot de precios por género\nplot_ly(\n  data = libros,\n  x    = ~genero,\n  y    = ~precio,\n  color = ~genero,\n  colors = colores,\n  type  = \"box\",\n  boxpoints = \"outliers\",\n  showlegend = FALSE\n) %&gt;%\n  layout(\n    xaxis = list(title = \"\"),\n    yaxis = list(title = \"Precio $AR\")\n  )\n```"
+  },
+  {
+    "objectID": "slides/index.html#manos-a-la-obra",
+    "href": "slides/index.html#manos-a-la-obra",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "¡Manos a la obra!",
+    "text": "¡Manos a la obra!\n\nCrea un proyecto Quarto setendo el formato como dashboard\nIndica un título en YAML\nEn un primer chunck de setup llamá a las librerías tidyverse, dt y plotly y carga los datos de libros.\nA cada tarjeta asignales títulos usando la opción #| title:\nSetea las dos últimas tarjetas como tabs usando {.tabset} en la definición del nivel de la fila.\n\ny…🪄"
+  },
+  {
+    "objectID": "slides/index.html#cuando-termines-deberias-tener-algo-así",
+    "href": "slides/index.html#cuando-termines-deberias-tener-algo-así",
+    "title": "Armá un Dashboard con R y Quarto",
+    "section": "Cuando termines deberias tener algo así",
+    "text": "Cuando termines deberias tener algo así\n ::: :::"
   },
   {
     "objectID": "slides/index.html#value-boxes",
