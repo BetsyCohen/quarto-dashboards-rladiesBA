@@ -9,70 +9,54 @@ embed-resources: true
 
 ```{r}
 #| label: setup
-#| echo: false
-#| eval: true
-#| warning: false
-#| output: false
-
-# cargamos las librerías
 library(tidyverse)
-library(crosstalk)
 library(DT)
 library(plotly)
-library(kpiwidget)
+
+
 
 # Cargo datos
-libros <- read.csv("datos/libros.csv") |> 
+libros <- read.csv("datos/libros.csv")|> 
   mutate(titulo = str_to_title(titulo))
-
-# Compartir datos con Crosstalk
-shared_libros <- SharedData$new(libros)
-
 
 # colores para géneros
 colores <- RColorBrewer::brewer.pal(length(unique(libros$genero)), "Set3")
 
 ```
 
-## Filters {.sidebar}
-
 ```{r}
-#| label: filtro-generos
+#| label: calculo de elementos para value-boxes
+
+## precio promedio
+precio_prom <- libros %>%
+  filter(stock == "Disponible") %>%
+  summarise(promedio = mean(precio, na.rm = TRUE)) %>%
+  pull(promedio)
+
+## puntaje promedio
+rating_prom <- libros %>%
+  filter(stock == "Disponible") %>%
+  summarise(promedio = mean(rating, na.rm = TRUE)) %>%
+  pull(promedio)
+
+## porcentaje de libros en digital
+pct_ebook <- libros %>%
+  summarise(pct = mean(ebook == "Sí", na.rm = TRUE)*100) %>%
+  pull(pct)
+
 
 ```
-
-<br>
-
-```{r}
-#| label: filtro-precio
-
-```
-
-<br>
+## Fila 1
 
 ```{r}
-#| label: filtro-ebook
-
-```
-
-## Columna cuerpo
-
-### Fila de KPIs {height= 15%}
-
-```{r}
+#| label: value-box-precio-promedio
 #| content: valuebox
-#| title: "Precio X"
-#| icon: cash
+#| title: "Precio Promedio (ARS)"
+#| icon: "cash"
 #| color: "#32a852"
 #| expandable: false
 
-kpiwidget(
-  data   = shared_libros,
-  kpi    = "mean",
-  column = "precio",
-  prefix = "$ ",
-  height = "28px"
-)
+scales::comma(round(precio_prom,0))
 
 ```
 
@@ -83,15 +67,7 @@ kpiwidget(
 #| color: "#ded371"
 #| expandable: false
 
-
-kpiwidget(
-  data   = shared_libros,
-  kpi    = "mean",
-  column = "rating",
-  decimals = 2,
-  height = "28px"
-)
-
+scales::comma(round(rating_prom,0))
 ```
 
 ```{r}
@@ -99,29 +75,19 @@ kpiwidget(
 #| title: "% disponible Ebook"
 #| icon: "phone"
 #| color: "#a8a8a8"
-#| expandable: false
 
-kpiwidget(
-  data       = shared_libros,
-  column     = "ebook",
-  kpi        = "count",
-  comparison = "share",
-  group1     = ~ ebook == "Sí",
-  suffix     = " %",
-  height     = "28px"
-)
-
+scales::comma(round(pct_ebook,0))
 ```
 
-
-### Fila Tabla libros
+## Fila 2 Tabla libros
 
 ```{r}
-#| label: tabla-ranking-libros
+#| label: tabla-libros
 #| title: Tabla de libros
+#| warning: false
 
 datatable(
-  shared_libros,
+  libros,
   options = list(
     pageLength = 10,
     order = list(list(0, 'asc')), # ordenamos la tabla por ranking
@@ -138,15 +104,15 @@ datatable(
 )
 ```
 
-### Fila de graficos 
+## Fila 3 Analisis por género
 
 ```{r}
 #| label: bars_ptj_genero
-#| title: "Rating promedio por género"
+#| title: Puntaje promedio por género
 #| warning: false
 
 plot_ly(
-  data = shared_libros,
+  data = libros,
   x    = ~genero,
   y    = ~rating,
   type = "bar",
@@ -160,18 +126,16 @@ plot_ly(
   marker = list(color = colores),
   showlegend = FALSE
 )
-
-
 ```
+
 
 ```{r}
 #| label: boxplot_precio_grafico
 #| title: "Precio por género"
 #| warning: false
 
-
 plot_ly(
-  data = shared_libros,
+  data = libros,
   x    = ~genero,
   y    = ~precio,
   color = ~genero,
@@ -184,8 +148,4 @@ plot_ly(
     xaxis = list(title = ""),
     yaxis = list(title = "Precio $AR")
   )
-
-
 ```
-
-

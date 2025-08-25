@@ -38,21 +38,21 @@ colores <- RColorBrewer::brewer.pal(length(unique(libros$genero)), "Set3")
 
 ```{r}
 #| label: filtro-generos
-
+filter_select("filtro_genero", "Género", shared_libros, ~genero, multiple = TRUE)
 ```
 
 <br>
 
 ```{r}
 #| label: filtro-precio
-
+filter_slider("filtro_precio", "Precio (ARS)", shared_libros, ~precio, width = "100%")
 ```
 
 <br>
 
 ```{r}
 #| label: filtro-ebook
-
+filter_checkbox("filtro_ebook", "Disponible en Ebook", shared_libros, ~ebook, inline = TRUE)
 ```
 
 ## Columna cuerpo

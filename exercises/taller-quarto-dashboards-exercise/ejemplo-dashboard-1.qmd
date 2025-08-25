@@ -1,7 +1,7 @@
 ---
-title: "Tablero de libros"
-editor: source
+title: "Cambia el titulo"
 format: dashboard
+editor: source
 embed-resources: true
 ---
 ```{r}
@@ -21,10 +21,11 @@ colores <- RColorBrewer::brewer.pal(length(unique(libros$genero)), "Set3")
 ```
 
 
-## Fila 1 
-```{r}
-#| title: Ranking
 
+```{r}
+# graficos y tablas
+
+# tabla 1
 datatable(
   libros,
   options = list(
@@ -41,14 +42,9 @@ datatable(
   rownames = FALSE,
   colnames = c("Puesto","Título","Autoría","$AR","Stock","Puntaje","Género","Pág.","Ebook")
 )
-```
 
-## Fila 2 {.tabset}
-```{r}
-#| label: bars_ptj_genero
-#| title: Puntaje promedio por género
-#| warning: false
 
+# grafico Puntaje promedio por género
 plot_ly(
   data = libros,
   x    = ~genero,
@@ -64,14 +60,8 @@ plot_ly(
   marker = list(color = colores),
   showlegend = FALSE
 )
-```
 
-
-```{r}
-#| label: boxplot_precio_grafico
-#| title: Precio por genero
-#| warning: false
-
+# grafico precio por género
 plot_ly(
   data = libros,
   x    = ~genero,

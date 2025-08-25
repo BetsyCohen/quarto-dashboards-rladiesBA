@@ -1,127 +1,35 @@
 ---
 title: "Tablero de libros"
 format: dashboard
-theme: minty
-logo: "images/logo.png"
 editor: source
 embed-resources: true
 ---
-
 ```{r}
 #| label: setup
-#| echo: false
-#| eval: true
-#| warning: false
-#| output: false
-
-# cargamos las librerías
 library(tidyverse)
-library(crosstalk)
 library(DT)
 library(plotly)
-library(kpiwidget)
+
 
 # Cargo datos
 libros <- read.csv("datos/libros.csv") |> 
   mutate(titulo = str_to_title(titulo))
 
-# Compartir datos con Crosstalk
-shared_libros <- SharedData$new(libros)
-
 
 # colores para géneros
 colores <- RColorBrewer::brewer.pal(length(unique(libros$genero)), "Set3")
-
-```
-
-## Filters {.sidebar}
-
-```{r}
-#| label: filtro-generos
-
-```
-
-<br>
-
-```{r}
-#| label: filtro-precio
-
-```
-
-<br>
-
-```{r}
-#| label: filtro-ebook
-
-```
-
-## Columna cuerpo
-
-### Fila de KPIs {height= 15%}
-
-```{r}
-#| content: valuebox
-#| title: "Precio X"
-#| icon: cash
-#| color: "#32a852"
-#| expandable: false
-
-kpiwidget(
-  data   = shared_libros,
-  kpi    = "mean",
-  column = "precio",
-  prefix = "$ ",
-  height = "28px"
-)
-
-```
-
-```{r}
-#| content: valuebox
-#| title: "Rating Promedio"
-#| icon: "star"
-#| color: "#ded371"
-#| expandable: false
-
-
-kpiwidget(
-  data   = shared_libros,
-  kpi    = "mean",
-  column = "rating",
-  decimals = 2,
-  height = "28px"
-)
-
-```
-
-```{r}
-#| content: valuebox
-#| title: "% disponible Ebook"
-#| icon: "phone"
-#| color: "#a8a8a8"
-#| expandable: false
-
-kpiwidget(
-  data       = shared_libros,
-  column     = "ebook",
-  kpi        = "count",
-  comparison = "share",
-  group1     = ~ ebook == "Sí",
-  suffix     = " %",
-  height     = "28px"
-)
-
 ```
 
 
-### Fila Tabla libros
+## Fila 1 Tabla libros
 
 ```{r}
-#| label: tabla-ranking-libros
+#| label: tabla-libros
 #| title: Tabla de libros
+#| warning: false
 
 datatable(
-  shared_libros,
+  libros,
   options = list(
     pageLength = 10,
     order = list(list(0, 'asc')), # ordenamos la tabla por ranking
@@ -138,15 +46,14 @@ datatable(
 )
 ```
 
-### Fila de graficos 
-
+## Fila 2 {.tabset}
 ```{r}
 #| label: bars_ptj_genero
-#| title: "Rating promedio por género"
+#| title: Puntaje promedio por género
 #| warning: false
 
 plot_ly(
-  data = shared_libros,
+  data = libros,
   x    = ~genero,
   y    = ~rating,
   type = "bar",
@@ -160,18 +67,16 @@ plot_ly(
   marker = list(color = colores),
   showlegend = FALSE
 )
-
-
 ```
+
 
 ```{r}
 #| label: boxplot_precio_grafico
 #| title: "Precio por género"
 #| warning: false
 
-
 plot_ly(
-  data = shared_libros,
+  data = libros,
   x    = ~genero,
   y    = ~precio,
   color = ~genero,
@@ -185,7 +90,4 @@ plot_ly(
     yaxis = list(title = "Precio $AR")
   )
 
-
 ```
-
-

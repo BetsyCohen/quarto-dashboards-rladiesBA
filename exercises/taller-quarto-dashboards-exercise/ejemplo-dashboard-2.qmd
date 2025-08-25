@@ -25,7 +25,7 @@ colores <- RColorBrewer::brewer.pal(length(unique(libros$genero)), "Set3")
 ```
 
 ```{r}
-#| label: calculo de elementos para value-boxes
+## calculo de elementos para value-boxes
 
 ## precio promedio
 precio_prom <- libros %>%
@@ -45,37 +45,15 @@ pct_ebook <- libros %>%
   pull(pct)
 
 
-```
-## Fila 1
+## value-boxes
 
-```{r}
-#| label: value-box-precio-promedio
-#| content: valuebox
-#| title: "Precio Promedio (ARS)"
-#| icon: "cash"
-#| color: "#32a852"
-#| expandable: false
-
+# "Precio Promedio (ARS)"
 scales::comma(round(precio_prom,0))
 
-```
-
-```{r}
-#| content: valuebox
-#| title: "Rating Promedio"
-#| icon: "star"
-#| color: "#ded371"
-#| expandable: false
-
+# "Rating Promedio"
 scales::comma(round(rating_prom,0))
-```
 
-```{r}
-#| content: valuebox
-#| title: "% disponible Ebook"
-#| icon: "phone"
-#| color: "#a8a8a8"
-
+# "% disponible Ebook"
 scales::comma(round(pct_ebook,0))
 ```
 
